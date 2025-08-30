@@ -1,9 +1,5 @@
-export const isInVisualEditor = typeof window !== 'undefined' && window.location !== window.parent.location;
-
 export default function getVersion() {
-  if (process.env.NODE_ENV === 'development' || 
-      process.env.STORYBLOCK_IS_PREVIEW === 'true' || 
-      isInVisualEditor) {
+  if (process.env.NODE_ENV === 'development' || process.env.STORYBLOK_IS_PREVIEW === 'true') {
     return 'draft';
   }
   return 'published';
