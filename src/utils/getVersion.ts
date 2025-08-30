@@ -1,5 +1,8 @@
 export default function getVersion() {
-  if (process.env.NODE_ENV === 'development' || process.env.STORYBLOK_IS_PREVIEW === 'true') {
+  if (process.env.NODE_ENV === 'development') {
+    return 'draft';
+  }
+  if (process.env.NODE_ENV === 'test') {
     return 'draft';
   }
   return 'published';
