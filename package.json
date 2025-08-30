@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --experimental-https",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "storyblok:gen": "pnpx storyblok ts generate --space 286031518921013",
-    "storyblok:pull": "pnpx storyblok pull --space 286031518921013",
+    "storyblok:gen": "pnpx storyblok ts generate --space 286760678329220",
+    "storyblok:pull": "pnpx storyblok components pull --space 286760678329220",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,md,mdx,html,markdown}\""
   },
   "dependencies": {

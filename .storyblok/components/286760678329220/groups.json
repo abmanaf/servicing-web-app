@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Hero Section",
+    "id": 84735853512560,
+    "uuid": "cd52e7d1-81d4-4073-bb82-6e2505a4292b",
+    "parent_id": 84735661700975,
+    "parent_uuid": "2af23288-3d14-432f-8d80-6a07c9dc6fc8"
+  },
+  {
+    "name": "Home Page",
+    "id": 84735661700975,
+    "uuid": "2af23288-3d14-432f-8d80-6a07c9dc6fc8",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Provider",
+    "id": 84748391233426,
+    "uuid": "22ff9ec0-e832-46c9-8ad3-deba0a5ad528",
+    "parent_id": 84735661700975,
+    "parent_uuid": "2af23288-3d14-432f-8d80-6a07c9dc6fc8"
+  },
+  {
+    "name": "why Choose Us",
+    "id": 84752094422935,
+    "uuid": "ad67ec19-5d2e-4ef7-a068-2ab37c30b2bd",
+    "parent_id": 84735661700975,
+    "parent_uuid": "2af23288-3d14-432f-8d80-6a07c9dc6fc8"
+  }
+]
