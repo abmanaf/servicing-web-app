@@ -28,8 +28,6 @@ export default async function Page({ params }: Props) {
       language,
       resolve_relations: ["heroSection", "providerSection", "whyChooseUs"]
     });
-
-    console.log(data);
     
     if (!data?.story) {
       console.error('No story found for slug:', fullSlug);
