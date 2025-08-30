@@ -28,7 +28,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <StoryblokProvider>{children}</StoryblokProvider>
+        <StoryblokProvider>
+          {children}
+        </StoryblokProvider>
       </body>
     </html>
   );

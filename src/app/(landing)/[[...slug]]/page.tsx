@@ -4,29 +4,38 @@ import getVersion from "@/utils/getVersion";
 import { notFound } from "next/navigation";
 
 interface Props {
-  params: Promise<{ slug: string[] }>;
+  params: Promise<{ slug?: string[] }>;
 }
 
 export default async function Page({ params }: Props) {
-  const { slug } = await params;
+  const { slug = [] } = await params;
 
   const availableLanguages = ["en", "fr", "de"];
-  const language = availableLanguages.includes(slug[0]) ? slug[0] : "en";
+  const firstSegment = slug?.[0] || '';
+  const language = availableLanguages.includes(firstSegment) ? firstSegment : "en";
 
-  if (language) {
-    slug.shift();
+  const pathSlug = [...slug];
+  if (language && pathSlug.length > 0) {
+    pathSlug.shift();
   }
 
-  const fullSlug = slug ? slug.join("/") : "home";
+  const fullSlug = pathSlug.length > 0 ? pathSlug.join("/") : "home";
+  
   try {
     const storyblokApi = getStoryblokApi();
-    let { data } = await storyblokApi.get(
-      `${process.env.STORYBLOK_BASE_URL}/${fullSlug}`,
-      {
-        version: getVersion(),
-        language,
-      }
-    );
+    const { data } = await storyblokApi.get(`${process.env.STORYBLOK_BASE_URL}/${fullSlug}`, {
+      version: getVersion(),
+      language,
+      resolve_relations: ["heroSection", "providerSection", "whyChooseUs"]
+    });
+
+    console.log(data);
+    
+    if (!data?.story) {
+      console.error('No story found for slug:', fullSlug);
+      return notFound();
+    }
+    
     return <StoryblokStory story={data.story} />;
   } catch (error) {
     console.error(error);
