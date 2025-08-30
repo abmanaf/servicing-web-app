@@ -23,20 +23,20 @@ export default async function Page({ params }: Props) {
   
   try {
     const storyblokApi = getStoryblokApi();
-    const { data } = await storyblokApi.get(`${process.env.STORYBLOK_BASE_URL}/${fullSlug}`, {
+    const { data } = await storyblokApi.get(`cdn/stories/${fullSlug}`, {
       version: getVersion(),
       language,
-      resolve_relations: ["heroSection", "providerSection", "whyChooseUs"]
+      resolve_relations: ["heroSection", "providerSection", "whyChooseUs"],
+      cv: Date.now(),
+      resolve_links: 'url'
     });
     
     if (!data?.story) {
-      console.error('No story found for slug:', fullSlug);
       return notFound();
     }
     
     return <StoryblokStory story={data.story} />;
   } catch (error) {
-    console.error(error);
     notFound();
   }
 }
