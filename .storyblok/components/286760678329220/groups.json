@@ -1,5 +1,19 @@
 [
   {
+    "name": "Footer",
+    "id": 86957533556953,
+    "uuid": "66337e46-8cb1-4c6d-8216-78d17bbfef5e",
+    "parent_id": 86957415608535,
+    "parent_uuid": "7befbfe1-76f1-474b-86bf-1666ea942d92"
+  },
+  {
+    "name": "Happy Customer",
+    "id": 86154287717240,
+    "uuid": "8dc381d6-9374-4730-b287-26cb21fdda7c",
+    "parent_id": 84735661700975,
+    "parent_uuid": "2af23288-3d14-432f-8d80-6a07c9dc6fc8"
+  },
+  {
     "name": "Hero Section",
     "id": 84735853512560,
     "uuid": "cd52e7d1-81d4-4073-bb82-6e2505a4292b",
@@ -14,11 +28,39 @@
     "parent_uuid": null
   },
   {
+    "name": "Layout",
+    "id": 86957415608535,
+    "uuid": "7befbfe1-76f1-474b-86bf-1666ea942d92",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Navbar",
+    "id": 86957476282584,
+    "uuid": "1a68bd00-d8b1-47da-aa41-c1302febc482",
+    "parent_id": 86957415608535,
+    "parent_uuid": "7befbfe1-76f1-474b-86bf-1666ea942d92"
+  },
+  {
+    "name": "Our Services",
+    "id": 86147964341102,
+    "uuid": "bd2adb66-4cfe-4ebb-b138-cbe4801c813e",
+    "parent_id": 84735661700975,
+    "parent_uuid": "2af23288-3d14-432f-8d80-6a07c9dc6fc8"
+  },
+  {
     "name": "Provider",
     "id": 84748391233426,
     "uuid": "22ff9ec0-e832-46c9-8ad3-deba0a5ad528",
     "parent_id": 84735661700975,
     "parent_uuid": "2af23288-3d14-432f-8d80-6a07c9dc6fc8"
+  },
+  {
+    "name": "Services Page",
+    "id": 86161637301134,
+    "uuid": "64d12569-e62f-4103-946c-33ef56725a59",
+    "parent_id": null,
+    "parent_uuid": null
   },
   {
     "name": "why Choose Us",

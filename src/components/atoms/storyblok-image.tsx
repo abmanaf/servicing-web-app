@@ -1,0 +1,37 @@
+import Image from "next/image";
+import { StoryblokAsset } from "@/types";
+
+interface StoryblokImageProps {
+  image: StoryblokAsset;
+  preserveAspectRatio?: boolean;
+  className?: string;
+  width?: number;
+  height?: number;
+}
+
+const ImageAspectRatio = ({
+  image,
+  preserveAspectRatio = true,
+  className = "",
+  width = 600,
+  height = 400,
+}: StoryblokImageProps) => {
+  if (!image?.filename) return null;
+
+  return (
+    <Image
+      src={image.filename}
+      alt={image.alt || "Image"}
+      width={width}
+      height={height}
+      className={
+        preserveAspectRatio
+          ? `aspect-auto rounded-lg shadow-2xl ${className}`
+          : `aspect-square object-cover rounded-lg shadow-2xl ${className}`
+      }
+      style={preserveAspectRatio ? {} : { aspectRatio: "1/1" }}
+    />
+  );
+};
+
+export default ImageAspectRatio;
