@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Check } from "lucide-react";
-import { switchLanguage } from "./helper/switch-language";
+import { SwitchLanguage } from "./hooks/switch-language";
 
 interface Language {
   code: string;
@@ -63,7 +63,7 @@ export default function LanguageSwitcher({
           {languages.map((language) => (
             <DropdownMenuItem
               key={language.code}
-              onClick={() => switchLanguage(language.code)}
+              onClick={() => SwitchLanguage(language.code)}
               className={cn(
                 "flex items-center space-x-3 cursor-pointer mb-2",
                 activeLocale === language.code && "bg-accent"

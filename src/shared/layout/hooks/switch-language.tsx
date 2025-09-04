@@ -1,6 +1,6 @@
 import { useRouter, usePathname } from "next/navigation";
 
-export const switchLanguage = (newLocale: string) => {
+export const SwitchLanguage = (newLocale: string) => {
   const router = useRouter();
   const pathname = usePathname();
   const availableLanguages = ["en", "fr", "de"];
