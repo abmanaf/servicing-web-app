@@ -9,7 +9,6 @@ import {
 } from "@/types";
 
 export function Footer({ blok }: { blok: FooterSection }) {
-  // Narrow types safely
   const aboutSection = blok?.footer_about?.find(
     (item): item is FooterAbout => item.component === "footerAbout"
   ) ?? { description: "", socials: [] };
