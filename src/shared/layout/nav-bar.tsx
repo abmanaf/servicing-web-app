@@ -14,6 +14,7 @@ import { Menu, X } from "lucide-react";
 import { NavBar as NavBarType, SiteLogo } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
+import LanguageSwitcher from "./language-switcher";
 
 export function Navbar({ blok }: { blok: NavBarType }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,6 +71,7 @@ export function Navbar({ blok }: { blok: NavBarType }) {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
+        <LanguageSwitcher currentLocale={blok?.language as string} className="mr-2" />
 
         <div className="hidden md:flex items-center gap-2">
           {authItems.map((item) => (

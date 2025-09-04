@@ -34,7 +34,6 @@ export function Footer({ blok }: { blok: FooterSection }) {
     <footer className="w-full border-t bg-background">
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* About Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <span className="font-bold text-xl">handyPro</span>
@@ -66,7 +65,6 @@ export function Footer({ blok }: { blok: FooterSection }) {
             </div>
           </div>
 
-          {/* Quick Links */}
           {quickLinks.length > 0 && (
             <div>
               <h3 className="font-semibold mb-4">Quick Links</h3>
@@ -85,7 +83,6 @@ export function Footer({ blok }: { blok: FooterSection }) {
             </div>
           )}
 
-          {/* Categories */}
           {categories.length > 0 && (
             <div>
               <h3 className="font-semibold mb-4">Categories</h3>
@@ -104,7 +101,6 @@ export function Footer({ blok }: { blok: FooterSection }) {
             </div>
           )}
 
-          {/* Legal & Support */}
           {legalSupport.length > 0 && (
             <div>
               <h3 className="font-semibold mb-4">Legal & Support</h3>
@@ -124,7 +120,6 @@ export function Footer({ blok }: { blok: FooterSection }) {
           )}
         </div>
 
-        {/* Copyright */}
         <div className="mt-12 pt-8 border-t text-center text-muted-foreground text-sm">
           © {new Date().getFullYear()} HandyPro. All rights reserved.
         </div>
