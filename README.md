@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Servicing Application
 
-## Getting Started
+A modern, responsive web application for service providers and customers, built with Next.js and Storyblok headless CMS.
 
-First, run the development server:
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![Storyblok](https://img.shields.io/badge/Storyblok-09B3AF?style=for-the-badge&logo=storyblok&logoColor=white)](https://www.storyblok.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- **Multi-language Support** - Built-in support for multiple languages (en, fr, de)
+- **Headless CMS** - Content managed through Storyblok
+- **Modern UI** - Built with Radix UI and Tailwind CSS
+- **Responsive Design** - Works on all device sizes
+- **Authentication** - Secure user authentication flows
+- **Service Management** - Browse and manage service providers
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.0 or later
+- pnpm (recommended) or npm
+- Storyblok space ID and access token
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/servicing-app.git
+   cd servicing-app
+   ```
+
+2. Install dependencies
+   ```bash
+   pnpm install
+   # or
+   npm install
+   ```
+
+3. Set up environment variables
+   ```bash
+   cp .env.example .env.local
+   ```
+   Update the `.env.local` file with your Storyblok credentials.
+
+4. Run the development server
+   ```bash
+   pnpm dev
+   # or
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## 🛠️ Development
+
+### Available Scripts
+
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
+- `pnpm format` - Format code with Prettier
+- `pnpm storyblok:gen` - Generate TypeScript types from Storyblok components
+- `pnpm storyblok:pull` - Pull Storyblok component schemas
+
+### Project Structure
+
+```
+src/
+├── app/                    # App router pages and layouts
+│   ├── auth/              # Authentication pages
+│   └── [[...slug]]/       # Dynamic routes for Storyblok pages
+├── components/            # Reusable UI components
+│   ├── ui/                # Shadcn/ui components
+│   └── molecule/          # Complex components
+├── lib/                   # Utility functions and API clients
+├── shared/                # Shared components and layouts
+│   └── layout/            # Layout components (header, footer, etc.)
+├── styles/                # Global styles
+├── types/                 # TypeScript type definitions
+└── utils/                 # Utility functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Core
+- Next.js 14 - React framework
+- React 19 - JavaScript library for building user interfaces
+- TypeScript - Type-safe JavaScript
+- Storyblok - Headless CMS
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### UI & Styling
+- Tailwind CSS - Utility-first CSS framework
+- Radix UI - Unstyled, accessible UI components
+- Lucide Icons - Beautiful, consistent icon set
 
-## Learn More
+### Form Handling
+- React Hook Form - Form state management
+- Zod - Schema validation
 
-To learn more about Next.js, take a look at the following resources:
+## 🌐 Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a `.env.local` file in the root directory with the following variables:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN=your-access-token
+NEXT_PUBLIC_STORYBLOK_ENV=dev # or 'prod' for production
+```
 
-## Deploy on Vercel
+## 🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Storyblok Documentation](https://www.storyblok.com/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+
+---
+
+Made with ❤️ by [Alibaba]
