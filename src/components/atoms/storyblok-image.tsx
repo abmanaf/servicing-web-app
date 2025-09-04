@@ -7,6 +7,7 @@ interface StoryblokImageProps {
   className?: string;
   width?: number;
   height?: number;
+  fallback?: React.ReactNode;
 }
 
 const ImageAspectRatio = ({
@@ -15,8 +16,9 @@ const ImageAspectRatio = ({
   className = "",
   width = 600,
   height = 400,
+  fallback,
 }: StoryblokImageProps) => {
-  if (!image?.filename) return null;
+  if (!image?.filename) return fallback;
 
   return (
     <Image

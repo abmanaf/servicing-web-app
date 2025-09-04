@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import Container from "../atoms/container";
 import ImageAspectRatio from "../atoms/storyblok-image";
+import { cn } from "@/lib/utils";
 
 const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
   return (
@@ -36,31 +37,32 @@ const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
 
           {blok.buttons && blok.buttons.length > 0 && (
             <div className="flex flex-col sm:flex-row gap-4 justify-start">
-              {blok.buttons[0] && (
-                <Button asChild variant="secondary" size="lg">
+              {blok.buttons.map((button, index) => (
+                <Button
+                  key={index}
+                  asChild
+                  variant={index === 0 ? "secondary" : "outline"}
+                  size="lg"
+                  className={cn(
+                    "border-white",
+                    index > 0
+                      ? "text-black bg-amber-100 hover:bg-amber-200"
+                      : ""
+                  )}
+                >
                   <Link
-                    href={blok.buttons[0].link?.cached_url ?? "#"}
+                    href={button?.link?.cached_url ?? "#"}
                     className="px-8 py-3 text-lg font-semibold"
                   >
-                    {blok.buttons[0].label ?? "Get Started"}
+                    {button?.label}
                   </Link>
                 </Button>
-              )}
-              {blok.buttons[1] && (
-                <Button asChild variant="outline" size="lg">
-                  <Link
-                    href={blok.buttons[1].link?.cached_url ?? "#"}
-                    className="border-white text-black hover:bg-white/10 px-8 py-3 text-lg font-semibold"
-                  >
-                    {blok.buttons[1].label ?? "Learn More"}
-                  </Link>
-                </Button>
-              )}
+              ))}
             </div>
           )}
         </div>
 
-        {blok.image && blok.image.filename && (
+        {blok.image && blok.image.filename ? (
           <div className="flex-1 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md">
               <ImageAspectRatio
@@ -68,8 +70,15 @@ const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
                 preserveAspectRatio={blok.preserve_image_ratio}
                 width={600}
                 height={blok.preserve_image_ratio ? undefined : 100}
+                fallback={
+                  <div className="border border-white w-full h-full max-w-md" />
+                }
               />
             </div>
+          </div>
+        ) : (
+          <div className="flex-1 flex justify-center w-full h-full lg:justify-end">
+            <div className="border border-white w-full h-full max-w-md" />
           </div>
         )}
       </div>
