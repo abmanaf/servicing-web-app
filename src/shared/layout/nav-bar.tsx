@@ -24,8 +24,8 @@ export function Navbar({ blok }: { blok: NavBarType }) {
   );
   const siteNameParts = logoData?.site_name
     ? Array.isArray(logoData.site_name)
-    ? logoData.site_name.map((part) => part.text).join("")
-    : logoData.site_name
+      ? logoData.site_name.map((part) => part.text).join("")
+      : logoData.site_name
     : "handyPro";
 
   const navItems = blok?.header_nav || [];
@@ -71,13 +71,20 @@ export function Navbar({ blok }: { blok: NavBarType }) {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <LanguageSwitcher currentLocale={blok?.language as string} className="mr-2" />
+        <LanguageSwitcher
+          currentLocale={blok?.language as string}
+          className="mr-2"
+        />
 
         <div className="hidden md:flex items-center gap-2">
           {authItems.map((item) => (
             <Button
               key={item._uid}
-              variant={item.label === "Login" ? "outline" : "default"}
+              variant={
+                item.label === "Login" || item.label === "Anmelden"
+                  ? "outline"
+                  : "default"
+              }
               size="sm"
               style={{
                 color: item.text_color || undefined,
@@ -119,7 +126,11 @@ export function Navbar({ blok }: { blok: NavBarType }) {
                   {authItems.map((item) => (
                     <Button
                       key={item._uid}
-                      variant={item.label === "Login" ? "outline" : "default"}
+                      variant={
+                        item.label === "Login" || item.label === "Anmelden"
+                          ? "outline"
+                          : "default"
+                      }
                       style={{
                         color: item.text_color || undefined,
                         backgroundColor: item.background_color || undefined,

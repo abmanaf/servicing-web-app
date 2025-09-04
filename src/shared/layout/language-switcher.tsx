@@ -10,7 +10,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Check } from "lucide-react";
-import { SwitchLanguage } from "./hooks/switch-language";
+import { useLanguageSwitcher } from "./hooks/switch-language";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface Language {
   code: string;
@@ -30,13 +32,33 @@ interface LanguageSwitcherProps {
 }
 
 export default function LanguageSwitcher({
-  currentLocale = "en",
+  currentLocale: initialLocale = "en",
   className,
 }: LanguageSwitcherProps) {
-  const activeLocale = currentLocale;
+  const [currentLocale, setCurrentLocale] = useState(initialLocale);
+  const pathname = usePathname();
+  const { switchLanguage } = useLanguageSwitcher();
+
+  useEffect(() => {
+    const pathParts = pathname.split("/");
+    const localeFromPath = pathParts[1];
+
+    if (languages.some((lang) => lang.code === localeFromPath)) {
+      setCurrentLocale(localeFromPath);
+    } else {
+      setCurrentLocale("en");
+    }
+  }, [pathname]);
 
   const currentLanguage =
-    languages.find((lang) => lang.code === activeLocale) || languages[0];
+    languages.find((lang) => lang.code === currentLocale) || languages[0];
+
+  const handleLanguageChange = (code: string) => {
+    if (code !== currentLocale) {
+      setCurrentLocale(code);
+      switchLanguage(code);
+    }
+  };
 
   return (
     <div className={cn("relative", className)}>
@@ -63,15 +85,15 @@ export default function LanguageSwitcher({
           {languages.map((language) => (
             <DropdownMenuItem
               key={language.code}
-              onClick={() => SwitchLanguage(language.code)}
+              onSelect={() => handleLanguageChange(language.code)}
               className={cn(
                 "flex items-center space-x-3 cursor-pointer mb-2",
-                activeLocale === language.code && "bg-accent"
+                currentLocale === language.code && "bg-accent"
               )}
             >
               <span className="text-lg">{language.flag}</span>
               <span className="flex-1">{language.name}</span>
-              {activeLocale === language.code && (
+              {currentLocale === language.code && (
                 <Check className="h-4 w-4 text-primary" />
               )}
             </DropdownMenuItem>
