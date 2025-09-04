@@ -5,24 +5,10 @@ import { notFound } from "next/navigation";
 import { Navbar } from "@/shared/layout/nav-bar";
 import { Footer } from "@/shared/layout/footer";
 import { NavBar, FooterSection } from "@/types";
+import { getSiteConfig } from "@/lib/fetch-data";
 
 interface Props {
   params: Promise<{ slug?: string[] }>;
-}
-
-async function getSiteConfig() {
-  try {
-    const storyblokApi = getStoryblokApi();
-    const { data } = await storyblokApi.get(`cdn/stories/site-config`, {
-      version: getVersion(),
-      cv: Date.now(),
-    });
-    
-    return data?.story;
-  } catch (error) {
-    console.error("Error fetching site config:", error);
-    return null;
-  }
 }
 
 export default async function Page({ params }: Props) {
@@ -51,7 +37,7 @@ export default async function Page({ params }: Props) {
         });
         return data;
       })(),
-      getSiteConfig()
+      getSiteConfig(language)
     ]);
 
     if (!pageData?.story) {
@@ -59,11 +45,11 @@ export default async function Page({ params }: Props) {
     }
 
     const navbarData = siteConfig?.content?.body?.find(
-      (item: any) => item.component === "navBar"
+      (item: NavBar) => item.component === "navBar"
     ) as NavBar;
     
     const footerData = siteConfig?.content?.body?.find(
-      (item: any) => item.component === "footerSection"
+      (item: FooterSection) => item.component === "footerSection"
     ) as FooterSection;
 
     return (
