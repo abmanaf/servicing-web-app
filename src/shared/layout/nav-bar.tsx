@@ -23,9 +23,8 @@ export function Navbar({ blok }: { blok: NavBarType }) {
   );
   const siteNameParts = logoData?.site_name
     ? Array.isArray(logoData.site_name)
-    // @ts-ignore
-      ? logoData.site_name.map((part) => part.text).join("")
-      : logoData.site_name
+    ? logoData.site_name.map((part) => part.text).join("")
+    : logoData.site_name
     : "handyPro";
 
   const navItems = blok?.header_nav || [];
