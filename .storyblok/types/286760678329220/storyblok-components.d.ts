@@ -372,31 +372,7 @@ export interface ProviderDetails {
   service?: string;
   email?: string;
   phone_number?: string;
-  get_in_touch?: (
-    | AuthItem
-    | Buttons
-    | Entries
-    | FooterAbout
-    | FooterItem
-    | FooterSection
-    | GridCard
-    | HappyCustomer
-    | HeaderNav
-    | Headline
-    | HeroSection
-    | InnierFooterItem
-    | NavBar
-    | OurSevices
-    | Page
-    | ProviderDetails
-    | ProviderSection
-    | ServiceDetails
-    | ServicesHeroSection
-    | ServicesSection
-    | SiteLogo
-    | Socails
-    | WhyChooseUs
-  )[];
+  get_in_touch?: Buttons[];
   component: "providerDetails";
   _uid: string;
   [k: string]: unknown;
@@ -428,6 +404,7 @@ export interface ProviderSection {
     | Socails
     | WhyChooseUs
   )[];
+  description?: string;
   search_placeholder?: string;
   providers_headline?: (
     | AuthItem
@@ -562,7 +539,7 @@ export interface ServicesSection {
 
 export interface SiteLogo {
   logo?: StoryblokAsset;
-  site_name?: string;
+  site_name?: Headline[];
   component: "siteLogo";
   _uid: string;
   [k: string]: unknown;
