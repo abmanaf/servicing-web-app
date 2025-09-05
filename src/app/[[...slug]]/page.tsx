@@ -23,7 +23,6 @@ export default async function Page({ params }: Props) {
 
   const fullSlug = pathSlug.length > 0 ? pathSlug.join("/") : "home";
 
-
   try {
     const [pageData, siteConfig] = await Promise.all([
       (async () => {
