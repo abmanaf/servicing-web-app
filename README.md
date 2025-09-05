@@ -192,7 +192,7 @@ We welcome contributions from everyone! Here's how you can help:
 
 ### Contributors / Contributeurs / Mitwirkende
 
-- [Alibaba](https://github.com/yourusername) - Project Lead / Chef de projet / Projektleiter
+- [Alibaba](https://github.com/abmanaf) - Project Lead / Chef de projet / Projektleiter
 
 ---
 
