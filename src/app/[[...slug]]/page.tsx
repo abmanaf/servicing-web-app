@@ -15,8 +15,10 @@ export default async function Page({ params }: Props) {
   const { slug = [] } = await params;
 
   const availableLanguages = ["en", "fr", "de"];
-  const firstSegment = slug?.[0] || '';
-  const language = availableLanguages.includes(firstSegment) ? firstSegment : "en";
+  const firstSegment = slug?.[0] || "";
+  const language = availableLanguages.includes(firstSegment)
+    ? firstSegment
+    : "en";
 
   const pathSlug = [...slug];
   if (language && pathSlug.length > 0) {
@@ -24,7 +26,7 @@ export default async function Page({ params }: Props) {
   }
 
   const fullSlug = pathSlug.length > 0 ? pathSlug.join("/") : "home";
-  
+
   try {
     const [pageData, siteConfig] = await Promise.all([
       (async () => {
@@ -33,11 +35,11 @@ export default async function Page({ params }: Props) {
           version: getVersion(),
           language,
           cv: Date.now(),
-          resolve_links: 'url'
+          resolve_links: "url",
         });
         return data;
       })(),
-      getSiteConfig(language)
+      getSiteConfig(language),
     ]);
 
     if (!pageData?.story) {
@@ -45,11 +47,11 @@ export default async function Page({ params }: Props) {
     }
 
     const navbarData = siteConfig?.content?.body?.find(
-      (item: NavBar) => item.component === "navBar"
+      (item: NavBar) => item.component === "navBar",
     ) as NavBar;
-    
+
     const footerData = siteConfig?.content?.body?.find(
-      (item: FooterSection) => item.component === "footerSection"
+      (item: FooterSection) => item.component === "footerSection",
     ) as FooterSection;
 
     return (

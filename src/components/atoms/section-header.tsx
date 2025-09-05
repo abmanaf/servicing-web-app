@@ -26,7 +26,7 @@ export function SectionHeader({
       <TitleComponent
         className={cn(
           "text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl",
-          { "mb-4": description }
+          { "mb-4": description },
         )}
       >
         {title}

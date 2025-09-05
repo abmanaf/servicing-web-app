@@ -48,19 +48,17 @@ const Container = ({
         "relative w-full flex justify-center overflow-hidden",
         backgroundClasses[background],
         spacingClasses[spacing],
-        className
+        className,
       )}
     >
-      {withOverlay && (
-        <div className="absolute inset-0 bg-black opacity-20" />
-      )}
+      {withOverlay && <div className="absolute inset-0 bg-black opacity-20" />}
 
       <div
         className={cn(
           "relative z-10 flex flex-col",
           alignmentClasses[alignment],
           fullWidth ? "w-full" : "container px-4 md:px-6",
-          containerClassName
+          containerClassName,
         )}
       >
         {children}

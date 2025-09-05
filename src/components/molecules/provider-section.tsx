@@ -30,7 +30,7 @@ export function ProviderSection({ blok, className }: ProviderSectionProps) {
       (provider) =>
         provider.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         provider.service?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        provider.email?.toLowerCase().includes(searchTerm.toLowerCase())
+        provider.email?.toLowerCase().includes(searchTerm.toLowerCase()),
     );
   }, [providerDetails, searchTerm]);
 

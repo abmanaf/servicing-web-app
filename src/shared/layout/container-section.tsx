@@ -51,13 +51,13 @@ export function ContainerSection({
       className={cn(
         backgroundClasses[background],
         paddingClasses[padding],
-        className
+        className,
       )}
     >
       <div
         className={cn(
           "mx-auto px-4 sm:px-6 lg:px-8",
-          maxWidthClasses[maxWidth]
+          maxWidthClasses[maxWidth],
         )}
       >
         {children}

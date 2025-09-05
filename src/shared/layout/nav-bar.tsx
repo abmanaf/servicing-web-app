@@ -20,7 +20,7 @@ export function Navbar({ blok }: { blok: NavBarType }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const logoData = blok?.logo_title?.find(
-    (item): item is SiteLogo => item.component === "siteLogo"
+    (item): item is SiteLogo => item.component === "siteLogo",
   );
   const siteNameParts = logoData?.site_name
     ? Array.isArray(logoData.site_name)

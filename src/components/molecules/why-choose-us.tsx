@@ -19,7 +19,7 @@ function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
 
   const entries: Entries[] = Array.isArray(blok?.entries)
     ? blok.entries.filter(
-        (entry): entry is Entries => entry.component === "entries"
+        (entry): entry is Entries => entry.component === "entries",
       )
     : [];
 
@@ -44,11 +44,13 @@ function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
             <button
               key={entry._uid}
               onClick={() => setActiveTab(index)}
-              className={cn(`px-6 py-2 rounded-full font-semibold text-sm lg:text-base transition-all duration-300 transform hover:scale-105 cursor-pointer ${
-                activeTab === index
-                  ? "bg-blue-600 text-white shadow scale-105"
-                  : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 shadow-sm"
-              }`)}
+              className={cn(
+                `px-6 py-2 rounded-full font-semibold text-sm lg:text-base transition-all duration-300 transform hover:scale-105 cursor-pointer ${
+                  activeTab === index
+                    ? "bg-blue-600 text-white shadow scale-105"
+                    : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 shadow-sm"
+                }`,
+              )}
             >
               {entry.headline ?? `Option ${index + 1}`}
             </button>

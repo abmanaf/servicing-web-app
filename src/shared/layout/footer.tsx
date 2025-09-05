@@ -10,22 +10,22 @@ import {
 
 export function Footer({ blok }: { blok: FooterSection }) {
   const aboutSection = blok?.footer_about?.find(
-    (item): item is FooterAbout => item.component === "footerAbout"
+    (item): item is FooterAbout => item.component === "footerAbout",
   ) ?? { description: "", socials: [] };
 
   const quickLinks =
     (blok?.learn?.find(
-      (item): item is FooterItem => item.component === "footerItem"
+      (item): item is FooterItem => item.component === "footerItem",
     )?.footer_item as InnierFooterItem[] | undefined) || [];
 
   const categories =
     (blok?.category?.find(
-      (item): item is FooterItem => item.component === "footerItem"
+      (item): item is FooterItem => item.component === "footerItem",
     )?.footer_item as InnierFooterItem[] | undefined) || [];
 
   const legalSupport =
     (blok?.legal_support?.find(
-      (item): item is FooterItem => item.component === "footerItem"
+      (item): item is FooterItem => item.component === "footerItem",
     )?.footer_item as InnierFooterItem[] | undefined) || [];
 
   const socialLinks = (aboutSection.socials as Socails[] | undefined) || [];

@@ -27,7 +27,7 @@ export function SearchField({
         placeholder={placeholder}
         className={cn(
           "w-full h-10 text-lg pl-12 pr-4 border-2 border-gray-200 focus:border-primary transition-colors rounded-full",
-          inputClassName
+          inputClassName,
         )}
       />
     </div>

@@ -2,14 +2,14 @@ import { cn } from "@/lib/utils";
 
 interface HeadlineProps {
   children: React.ReactNode;
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
   className?: string;
   highlight?: string;
 }
 
 export function Headline({
   children,
-  as: Component = 'h2',
+  as: Component = "h2",
   className,
   highlight,
   ...props
@@ -17,16 +17,14 @@ export function Headline({
   return (
     <Component
       className={cn(
-        'text-2xl font-bold text-gray-900 dark:text-white',
-        'md:text-3xl lg:text-4xl',
-        className
+        "text-2xl font-bold text-gray-900 dark:text-white",
+        "md:text-3xl lg:text-4xl",
+        className,
       )}
       {...props}
     >
       {children}
-      {highlight && (
-        <span className="text-primary">{highlight}</span>
-      )}
+      {highlight && <span className="text-primary">{highlight}</span>}
     </Component>
   );
 }

@@ -88,7 +88,7 @@ export default function LanguageSwitcher({
               onSelect={() => handleLanguageChange(language.code)}
               className={cn(
                 "flex items-center space-x-3 cursor-pointer mb-2",
-                currentLocale === language.code && "bg-accent"
+                currentLocale === language.code && "bg-accent",
               )}
             >
               <span className="text-lg">{language.flag}</span>

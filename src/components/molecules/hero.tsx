@@ -47,7 +47,7 @@ const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
                     "border-white",
                     index > 0
                       ? "text-black bg-amber-100 hover:bg-amber-200"
-                      : ""
+                      : "",
                   )}
                 >
                   <Link

@@ -42,7 +42,7 @@ export default function Input({
       className={clsx(
         "flex items-center space-x-2",
         reverse && "flex-row-reverse space-x-reverse",
-        className
+        className,
       )}
     >
       <Label
