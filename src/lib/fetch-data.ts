@@ -4,7 +4,7 @@ import getVersion from "@/utils/getVersion";
 export async function getSiteConfig(language: string) {
   try {
     const storyblokApi = getStoryblokApi();
-    const { data } = await storyblokApi.get(`cdn/stories/site-config`, {
+    const { data } = await storyblokApi.get(`cdn/stories/layout/site-config`, {
       version: getVersion(),
       language,
       cv: Date.now(),
