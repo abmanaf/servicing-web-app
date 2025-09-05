@@ -12,20 +12,17 @@ interface Props {
 }
 
 export default async function Page({ params }: Props) {
-  const { slug = [] } = await params;
+  const slugArray = (await params).slug ?? [];
 
   const availableLanguages = ["en", "fr", "de"];
-  const firstSegment = slug?.[0] || "";
-  const language = availableLanguages.includes(firstSegment)
-    ? firstSegment
-    : "en";
+  const firstSegment = slugArray[0];
+  const isLanguage = firstSegment && availableLanguages.includes(firstSegment);
 
-  const pathSlug = [...slug];
-  if (language && pathSlug.length > 0) {
-    pathSlug.shift();
-  }
+  const language = isLanguage ? firstSegment : "en";
+  const pathSlug = isLanguage ? slugArray.slice(1) : slugArray;
 
   const fullSlug = pathSlug.length > 0 ? pathSlug.join("/") : "home";
+
 
   try {
     const [pageData, siteConfig] = await Promise.all([
