@@ -330,6 +330,8 @@ export interface OurSevices {
   columns?: "" | "Two" | "Three" | "Four";
   background_color?: "" | "white" | "primary";
   general_button?: Buttons[];
+  no_service?: string;
+  no_service_description?: string;
   component: "ourSevices";
   _uid: string;
   [k: string]: unknown;
@@ -475,7 +477,7 @@ export interface ServicesHeroSection {
   )[];
   description?: string;
   image?: StoryblokAsset;
-  component: "ServicesHeroSection";
+  component: "servicesHeroSection";
   _uid: string;
   [k: string]: unknown;
 }
