@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import type { GridCard as GridCardType } from "@/types";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";

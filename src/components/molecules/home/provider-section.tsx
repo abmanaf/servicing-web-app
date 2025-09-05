@@ -17,12 +17,10 @@ type ProviderSectionProps = {
 export function ProviderSection({ blok, className }: ProviderSectionProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Safely get provider details
   const providerDetails = Array.isArray(blok?.provider_details)
     ? blok.provider_details
     : [];
 
-  // Filter providers based on search term
   const filteredProviders = useMemo(() => {
     if (!searchTerm.trim()) return providerDetails;
 

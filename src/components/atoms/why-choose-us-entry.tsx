@@ -1,6 +1,3 @@
-"use client";
-
-import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 import Image from "next/image";
 import type { Entries } from "@/types";
