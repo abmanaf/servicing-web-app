@@ -10,6 +10,8 @@
     "lint:fix": "eslint --fix",
     "storyblok:gen": "pnpx storyblok ts generate --space 286760678329220",
     "storyblok:pull": "pnpx storyblok components pull --space 286760678329220",
+    "storyblok:login": "pnpx storyblok login",
+    "storyblok:logout": "pnpx storyblok logout",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,md,mdx,html,markdown}\""
   },
   "dependencies": {
