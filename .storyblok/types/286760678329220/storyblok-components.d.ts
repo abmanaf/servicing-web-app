@@ -180,31 +180,7 @@ export interface FooterSection {
 export interface GridCard {
   label?: string;
   description?: string;
-  grid_button?: (
-    | AuthItem
-    | Buttons
-    | Entries
-    | FooterAbout
-    | FooterItem
-    | FooterSection
-    | GridCard
-    | HappyCustomer
-    | HeaderNav
-    | Headline
-    | HeroSection
-    | InnierFooterItem
-    | NavBar
-    | OurSevices
-    | Page
-    | ProviderDetails
-    | ProviderSection
-    | ServiceDetails
-    | ServicesHeroSection
-    | ServicesSection
-    | SiteLogo
-    | Socails
-    | WhyChooseUs
-  )[];
+  grid_button?: Buttons[];
   icon?: StoryblokAsset;
   icon_width?: "" | "48px" | "80px" | "160px" | "200px";
   row_span?: "" | "One" | "Two";
@@ -218,12 +194,13 @@ export interface GridCard {
 export interface HappyCustomer {
   headline?: Headline[];
   description?: StoryblokRichtext;
-  background_color?: "" | "White" | "Primary";
+  background_color?: "" | "White" | "Primary" | "Muted" | "Secondary";
   reverser_mobile_layout?: boolean;
   reverse_destop_layout?: boolean;
   button?: Buttons[];
   image?: StoryblokAsset;
   image_aspect_ratio?: boolean;
+  fallback_description?: string;
   component: "happyCustomer";
   _uid: string;
   [k: string]: unknown;
@@ -328,7 +305,7 @@ export interface OurSevices {
   description?: string;
   grid_card?: GridCard[];
   columns?: "" | "Two" | "Three" | "Four";
-  background_color?: "" | "white" | "primary";
+  background_color?: "" | "White" | "Primary" | "Muted" | "Secondary";
   general_button?: Buttons[];
   no_service?: string;
   no_service_description?: string;

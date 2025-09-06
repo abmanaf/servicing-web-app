@@ -338,23 +338,31 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-09-01T10:20:15.005Z",
-    "updated_at": "2025-09-01T10:29:38.715Z",
+    "updated_at": "2025-09-05T18:05:19.724Z",
     "id": 86148771867097,
     "schema": {
       "label": {
         "type": "text",
         "pos": 0,
-        "id": "dxSgLvz6SiqYs3CavX_DjQ"
+        "id": "dxSgLvz6SiqYs3CavX_DjQ",
+        "translatable": true
       },
       "description": {
         "type": "textarea",
         "pos": 1,
-        "id": "1p2E1sZ5RFO6RqSZlRNoFA"
+        "id": "1p2E1sZ5RFO6RqSZlRNoFA",
+        "translatable": true
       },
       "grid_button": {
         "type": "bloks",
         "pos": 2,
-        "id": "IL8Bh0Z9QdWK-CNCbw8Cqg"
+        "id": "IL8Bh0Z9QdWK-CNCbw8Cqg",
+        "maximum": 1,
+        "restrict_type": "",
+        "restrict_components": true,
+        "component_whitelist": [
+          "buttons"
+        ]
       },
       "icon": {
         "type": "asset",
@@ -439,7 +447,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-09-01T10:45:52.470Z",
-    "updated_at": "2025-09-01T10:54:28.022Z",
+    "updated_at": "2025-09-06T06:06:59.211Z",
     "id": 86155069323843,
     "schema": {
       "headline": {
@@ -455,7 +463,8 @@
       "description": {
         "type": "richtext",
         "pos": 1,
-        "id": "AHK9N7P2Rl-16IRuR_cMFg"
+        "id": "AHK9N7P2Rl-16IRuR_cMFg",
+        "translatable": true
       },
       "background_color": {
         "type": "option",
@@ -464,13 +473,28 @@
         "options": [
           {
             "_uid": "c5bcc822-ecaa-4679-9fca-d04db4a31b4b",
-            "name": "White",
+            "name": "white",
             "value": "White"
           },
           {
             "_uid": "f27c6715-9f2c-422b-acc0-d1d9a1e68ee0",
             "value": "Primary",
-            "name": "Primary"
+            "name": "primary"
+          },
+          {
+            "_uid": "38d16caa-f615-4ba0-b9d9-cb201452ad3b",
+            "value": "Muted",
+            "name": "muted"
+          },
+          {
+            "_uid": "d3f50aa4-f523-4bb4-90f3-5ccec8e68392",
+            "value": "Secondary",
+            "name": "secondary"
+          },
+          {
+            "_uid": "cea4d5ec-5bdf-4642-9389-8bb8aea98ed5",
+            "value": "",
+            "name": ""
           }
         ],
         "id": "3JLdgdL_S-qVFCmDn0XT7g"
@@ -505,6 +529,11 @@
         "type": "boolean",
         "pos": 7,
         "id": "Y9dYZidoRoGyEUj6euh4WQ"
+      },
+      "fallback_description": {
+        "type": "text",
+        "pos": 8,
+        "id": "m8N2J6ZeSeGL4vQrd_haMA"
       }
     },
     "image": null,
@@ -785,7 +814,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-09-01T10:17:27.760Z",
-    "updated_at": "2025-09-05T17:18:48.056Z",
+    "updated_at": "2025-09-06T04:48:59.596Z",
     "id": 86148086831573,
     "schema": {
       "headline": {
@@ -797,7 +826,8 @@
       "description": {
         "type": "textarea",
         "pos": 1,
-        "id": "V1B1Ch4YRxeRv0Mo-7seWA"
+        "id": "V1B1Ch4YRxeRv0Mo-7seWA",
+        "translatable": true
       },
       "grid_card": {
         "type": "bloks",
@@ -840,12 +870,22 @@
           {
             "_uid": "aa845b71-f8a2-4e8e-a01d-9765139bf66f",
             "name": "white",
-            "value": "white"
+            "value": "White"
           },
           {
             "_uid": "98832b9d-613f-41ea-95a1-c7f3a64e7b28",
-            "value": "primary",
+            "value": "Primary",
             "name": "primary"
+          },
+          {
+            "_uid": "3a1d6453-d92f-417b-817f-02c9330bb17c",
+            "value": "Muted",
+            "name": "muted"
+          },
+          {
+            "_uid": "fc71a78c-2401-4a23-875d-855955809f17",
+            "value": "Secondary",
+            "name": "secondary"
           }
         ],
         "id": "GyASbWqcTgS0ckUa7jToFA"
@@ -864,12 +904,14 @@
       "no_service": {
         "type": "text",
         "pos": 6,
-        "id": "AgR-3Gz0QQ-S8zahySFeAg"
+        "id": "AgR-3Gz0QQ-S8zahySFeAg",
+        "translatable": true
       },
       "no_service_description": {
         "type": "text",
         "pos": 7,
-        "id": "ee0xWwroQs6qAle1HLDcpw"
+        "id": "ee0xWwroQs6qAle1HLDcpw",
+        "translatable": true
       }
     },
     "image": null,
