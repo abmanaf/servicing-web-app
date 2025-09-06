@@ -1,8 +1,11 @@
 export const getBackgroundColor = (color: string) => {
   switch (color) {
-    case "primary":
+    case "Primary":
+      return "primary";
+    case "Muted":
       return "muted";
-    case "white":
+    case "Secondary":
+      return "secondary";
     default:
       return "default";
   }
@@ -17,5 +20,18 @@ export const getGridColumns = (columns: string) => {
     case "Three":
     default:
       return "lg:grid-cols-3";
+  }
+};
+
+export const getHeaderColor = (color: string) => {
+  switch (color) {
+    case "Default Highlight":
+      return "text-white";
+    case "Primary Highlight":
+      return "text-primary";
+    case "Secondary Highlight":
+      return "text-blue-500";
+    default:
+      return "text-gray-900";
   }
 };

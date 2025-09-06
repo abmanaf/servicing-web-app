@@ -27,7 +27,7 @@ export function OurServices({ blok, className }: OurServicesProps) {
       )
     : [];
 
-  const backgroundColor = getBackgroundColor(blok.background_color ?? "white");
+  const backgroundColor = getBackgroundColor(blok.background_color ?? "Muted");
 
   return (
     <ContainerSection

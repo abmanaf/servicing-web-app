@@ -21,10 +21,10 @@ export function ContainerSection({
   maxWidth = "7xl",
 }: ContainerSectionProps) {
   const backgroundClasses = {
-    default: "bg-white",
+    default: "bg-background",
     muted: "bg-gray-50",
-    primary: "bg-primary-50",
-    secondary: "bg-secondary-50",
+    primary: "bg-primary text-primary-foreground",
+    secondary: "bg-secondary",
   };
 
   const paddingClasses = {
