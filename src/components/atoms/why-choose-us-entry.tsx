@@ -1,7 +1,7 @@
 import { render } from "storyblok-rich-text-react-renderer";
 import Image from "next/image";
 import type { Entries } from "@/types";
-import { customRenderOptions } from "@/shared/layout/custome-render";
+import { customRenderer } from "@/shared/layout/custome-render";
 import ImageFallback from "@/shared/layout/image-fallback";
 
 interface WhyChooseUsEntryProps {
@@ -24,7 +24,7 @@ export function WhyChooseUsEntry({ blok }: WhyChooseUsEntryProps) {
 
         {blok.description && (
           <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-            <div>{render(blok.description, customRenderOptions)}</div>
+            <div>{render(blok.description, customRenderer)}</div>
           </div>
         )}
       </div>
