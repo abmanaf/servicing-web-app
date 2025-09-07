@@ -45,10 +45,13 @@ export interface Entries {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   component: "entries";
   _uid: string;
@@ -92,10 +95,13 @@ export interface FooterSection {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   learn?: (
     | AuthItem
@@ -117,10 +123,13 @@ export interface FooterSection {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   category?: (
     | AuthItem
@@ -142,10 +151,13 @@ export interface FooterSection {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   legal_support?: (
     | AuthItem
@@ -167,10 +179,13 @@ export interface FooterSection {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   component: "footerSection";
   _uid: string;
@@ -180,10 +195,9 @@ export interface FooterSection {
 export interface GridCard {
   label?: string;
   description?: string;
-  grid_button?: Buttons[];
   icon?: StoryblokAsset;
-  icon_width?: "" | "48px" | "80px" | "160px" | "200px";
-  row_span?: "" | "One" | "Two";
+  icon_width?: "" | "48" | "80" | "160" | "200";
+  row_span?: "" | "1" | "2";
   border?: boolean;
   image?: StoryblokAsset;
   component: "gridCard";
@@ -264,10 +278,13 @@ export interface NavBar {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   header_nav?: HeaderNav[];
   auth_item?: AuthItem[];
@@ -297,14 +314,17 @@ export interface OurSevices {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   description?: string;
   grid_card?: GridCard[];
-  columns?: "" | "Two" | "Three" | "Four";
+  columns?: "" | "2" | "3" | "4";
   background_color?: "" | "White" | "Primary" | "Muted" | "Secondary";
   general_button?: Buttons[];
   no_service?: string;
@@ -335,10 +355,13 @@ export interface Page {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   component: "page";
   _uid: string;
@@ -378,10 +401,13 @@ export interface ProviderSection {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   description?: string;
   search_placeholder?: string;
@@ -405,12 +431,19 @@ export interface ProviderSection {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   provider_details?: ProviderDetails[];
+  search_no_provider?: string;
+  no_provider_search_item?: string;
+  no_provider_yet?: string;
+  no_provider_description?: string;
   component: "providerSection";
   _uid: string;
   [k: string]: unknown;
@@ -427,34 +460,26 @@ export interface ServiceDetails {
 }
 
 export interface ServicesHeroSection {
-  headline?: (
-    | AuthItem
-    | Buttons
-    | Entries
-    | FooterAbout
-    | FooterItem
-    | FooterSection
-    | GridCard
-    | HappyCustomer
-    | HeaderNav
-    | Headline
-    | HeroSection
-    | InnierFooterItem
-    | NavBar
-    | OurSevices
-    | Page
-    | ProviderDetails
-    | ProviderSection
-    | ServiceDetails
-    | ServicesHeroSection
-    | ServicesSection
-    | SiteLogo
-    | Socails
-    | WhyChooseUs
-  )[];
+  headline?: Headline[];
   description?: string;
+  explore_service?: Buttons[];
   image?: StoryblokAsset;
+  image_height?: "" | "Small" | "Medium" | "Large" | "Full";
+  image_opacity?: "" | "Light" | "Dark" | "Medium" | "Default";
   component: "servicesHeroSection";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface ServicesPart {
+  headline?: Headline[];
+  description?: StoryblokRichtext;
+  image?: StoryblokAsset;
+  image_aspect_ratio?: boolean;
+  desktop_layout?: boolean;
+  mobile_layout?: boolean;
+  section_background_color?: "" | "White" | "Primary" | "Muted" | "Secondary";
+  component: "servicesPart";
   _uid: string;
   [k: string]: unknown;
 }
@@ -480,37 +505,16 @@ export interface ServicesSection {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
-  description?: StoryblokRichtext;
-  service_details?: (
-    | AuthItem
-    | Buttons
-    | Entries
-    | FooterAbout
-    | FooterItem
-    | FooterSection
-    | GridCard
-    | HappyCustomer
-    | HeaderNav
-    | Headline
-    | HeroSection
-    | InnierFooterItem
-    | NavBar
-    | OurSevices
-    | Page
-    | ProviderDetails
-    | ProviderSection
-    | ServiceDetails
-    | ServicesHeroSection
-    | ServicesSection
-    | SiteLogo
-    | Socails
-    | WhyChooseUs
-  )[];
+  description?: string;
+  sevice?: ServicesPart[];
   component: "servicesSection";
   _uid: string;
   [k: string]: unknown;
@@ -553,14 +557,41 @@ export interface WhyChooseUs {
     | ProviderSection
     | ServiceDetails
     | ServicesHeroSection
+    | ServicesPart
     | ServicesSection
     | SiteLogo
     | Socails
     | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
   )[];
   description?: string;
   entries?: Entries[];
   component: "whyChooseUs";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface WorkProcess {
+  header?: Headline[];
+  description?: string;
+  workProcessCard?: WorkProcessCard[];
+  columns?: "" | "2" | "3" | "4";
+  background_color?: "" | "Primary" | "Muted" | "Secondary" | "Default";
+  component: "workProcess";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export interface WorkProcessCard {
+  icon?: StoryblokAsset;
+  title?: string;
+  description?: string;
+  icon_width?: "" | "48" | "80" | "160" | "200";
+  row_span?: "" | "1" | "2";
+  border?: boolean;
+  card_bg_color?: "" | "Primary" | "Secondary" | "Muted" | "Default";
+  component: "workProcessCard";
   _uid: string;
   [k: string]: unknown;
 }
