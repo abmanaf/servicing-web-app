@@ -4,15 +4,9 @@ import { cn } from "@/lib/utils";
 
 interface WorkProcessCardProps {
   blok: WorkProcessCardType;
-  stepNumber?: number;
-  totalSteps?: number;
 }
 
-export function WorkProcessCard({
-  blok,
-  stepNumber,
-  totalSteps,
-}: WorkProcessCardProps) {
+export function WorkProcessCard({ blok }: WorkProcessCardProps) {
   const hasBorder = blok.border ? "border border-gray-200" : "";
   const rowSpan = blok.row_span === "2" ? "lg:row-span-2" : "";
   const backgroundColor = getBackgroundColor(blok.card_bg_color ?? "Muted");
@@ -37,7 +31,7 @@ export function WorkProcessCard({
         >
           <img
             src={blok.icon.filename}
-            alt={blok.icon.alt || blok.title || "Process step icon"}
+            alt={blok.icon.alt || blok.title}
             className="object-contain"
             width={iconWidth}
             height={iconWidth}
@@ -58,14 +52,6 @@ export function WorkProcessCard({
           </p>
         )}
       </div>
-
-      {stepNumber !== undefined && (
-        <div className="lg:hidden mt-4 pt-4 border-t border-gray-100 w-full">
-          <div className="text-sm text-gray-500 font-medium">
-            Step {stepNumber + 1} of {totalSteps}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

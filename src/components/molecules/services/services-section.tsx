@@ -16,7 +16,7 @@ export function ServicesSection({ blok, className }: ServicesSectionProps) {
   const services: ServicesPartType[] = Array.isArray(blok?.sevice)
     ? blok.sevice.filter(
         (service): service is ServicesPartType =>
-          service.component === "servicesPart",
+          service.component === "servicesPart"
       )
     : [];
 
@@ -35,7 +35,7 @@ export function ServicesSection({ blok, className }: ServicesSectionProps) {
         align="center"
       />
       {services.length > 0 ? (
-        <div className="divide-y">
+        <div className="divide-y container mx-auto lg:px-4">
           {services.map((service) => (
             <ServicesPart key={service._uid} blok={service} />
           ))}

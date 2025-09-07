@@ -26,7 +26,7 @@ export function ProviderSection({ blok, className }: ProviderSectionProps) {
       (provider) =>
         provider.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         provider.service?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        provider.email?.toLowerCase().includes(searchTerm.toLowerCase())
+        provider.email?.toLowerCase().includes(searchTerm.toLowerCase()),
     );
   }, [providersDetails, searchTerm]);
 
@@ -71,9 +71,7 @@ export function ProviderSection({ blok, className }: ProviderSectionProps) {
             <Search className="w-12 h-12 text-gray-400" />
           </div>
           <h3 className="text-xl font-semibold text-gray-900 mb-2">
-            {searchTerm.trim()
-              ? blok.search_no_provider
-              : blok.no_provider_yet}
+            {searchTerm.trim() ? blok.search_no_provider : blok.no_provider_yet}
           </h3>
           <p className="text-gray-600">
             {searchTerm.trim()

@@ -51,28 +51,12 @@ export function WorkProcess({ blok, className }: WorkProcessProps) {
         <div className="relative">
           <div
             className={cn(
-              "hidden lg:grid gap-8 container mx-auto px-4 relative",
+              "grid grid-cols-1 gap-8 container mx-auto lg:px-4 relative",
               columns,
             )}
           >
-            {processCards.map((card, index) => (
-              <WorkProcessCard
-                key={card._uid}
-                blok={card}
-                stepNumber={index}
-                totalSteps={processCards.length}
-              />
-            ))}
-          </div>
-
-          <div className="lg:hidden space-y-6">
-            {processCards.map((card, index) => (
-              <WorkProcessCard
-                key={card._uid}
-                blok={card}
-                stepNumber={index}
-                totalSteps={processCards.length}
-              />
+            {processCards.map((card) => (
+              <WorkProcessCard key={card._uid} blok={card} />
             ))}
           </div>
         </div>
@@ -81,16 +65,6 @@ export function WorkProcess({ blok, className }: WorkProcessProps) {
       {processCards.length === 0 && (
         <div className="text-center py-16">
           <EmptyService />
-        </div>
-      )}
-
-      {processCards.length > 0 && (
-        <div className="lg:hidden flex justify-center mt-8">
-          <div className="flex space-x-2">
-            {processCards.map((_, index) => (
-              <div key={index} className="w-2 h-2 bg-blue-200 rounded-full" />
-            ))}
-          </div>
         </div>
       )}
     </ContainerSection>
