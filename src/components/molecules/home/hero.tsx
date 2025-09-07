@@ -1,11 +1,19 @@
 import type { HeroSection as HeroSectionType } from "@/types";
 import Link from "next/link";
-import { Button } from "../../ui/button";
-import Container from "../../atoms/container";
-import ImageAspectRatio from "../../atoms/storyblok-image";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/atoms/container";
+import ImageAspectRatio from "@/components/atoms/storyblok-image";
+import { getHeaderColor } from "@/shared/layout/storyblok-global-style";
+
 import { cn } from "@/lib/utils";
 
 const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
+  const headerColor = getHeaderColor(
+    blok.headline?.[0].highlight ?? "Default Highlight",
+  );
+  const nextHeaderTitle = getHeaderColor(
+    blok.headline?.[1].highlight ?? "Default Highlight",
+  );
   return (
     <Container
       background="gradient"
@@ -18,12 +26,22 @@ const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
         <div className="flex-1 max-w-2xl text-left">
           <div className="mb-4">
             {blok.headline?.[0]?.text && (
-              <h1 className="text-3xl md:text-5xl font-bold mb-2">
+              <h1
+                className={cn(
+                  "text-xl md:text-3xl lg:text-4xl font-bold",
+                  headerColor,
+                )}
+              >
                 {blok.headline[0].text}
               </h1>
             )}
             {blok.headline?.[1]?.text && (
-              <h2 className="text-2xl md:text-4xl font-bold text-blue-300">
+              <h2
+                className={cn(
+                  "text-xl md:text-3xl lg:text-4xl font-bold",
+                  nextHeaderTitle,
+                )}
+              >
                 {blok.headline[1].text}
               </h2>
             )}

@@ -1,18 +1,22 @@
 import { ArrowRightCircle } from "lucide-react";
+import { ReactNode } from "react";
 
-export const customRenderOptions = {
+export const customRenderer = {
   nodeResolvers: {
-    ["unordered_list"]: (children: React.ReactNode) => (
-      <ul className="space-y-3 list-none">{children}</ul>
+    paragraph: (children: ReactNode) => (
+      <p className="text-lg text-gray-600 leading-relaxed mb-4">{children}</p>
     ),
-    ["ordered_list"]: (children: React.ReactNode) => (
-      <ol className="space-y-3 list-none">{children}</ol>
+    bullet_list: (children: ReactNode) => (
+      <ul className="space-y-1 mb-1">{children}</ul>
     ),
-    ["list_item"]: (children: React.ReactNode) => (
-      <li className="flex items-start gap-3 mt-2">
+    list_item: (children: ReactNode) => (
+      <li className="flex items-start gap-3">
         <ArrowRightCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-gray-700">{children}</span>
+        <span className="flex-1 text-gray-700">{children}</span>
       </li>
+    ),
+    bold: (children: ReactNode) => (
+      <strong className="font-semibold text-gray-900">{children}</strong>
     ),
   },
 };
