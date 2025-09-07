@@ -28,7 +28,7 @@ export function OurServices({ blok, className }: OurServicesProps) {
     : [];
 
   const backgroundColor = getBackgroundColor(blok.background_color ?? "Muted");
-
+  const columns = getGridColumns(blok.columns ?? "Three");
   return (
     <ContainerSection
       className={className}
@@ -48,7 +48,7 @@ export function OurServices({ blok, className }: OurServicesProps) {
         <div
           className={cn(
             "grid grid-cols-1 md:grid-cols-2 container mx-auto px-4",
-            getGridColumns(blok.columns ?? "Three"),
+            columns,
             "gap-8",
           )}
         >
