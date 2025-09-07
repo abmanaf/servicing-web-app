@@ -16,21 +16,19 @@ type ProviderSectionProps = {
 
 export function ProviderSection({ blok, className }: ProviderSectionProps) {
   const [searchTerm, setSearchTerm] = useState("");
-
-  const providerDetails = Array.isArray(blok?.provider_details)
+  const providersDetails = Array.isArray(blok?.provider_details)
     ? blok.provider_details
     : [];
-
   const filteredProviders = useMemo(() => {
-    if (!searchTerm.trim()) return providerDetails;
+    if (!searchTerm.trim()) return providersDetails;
 
-    return providerDetails.filter(
+    return providersDetails.filter(
       (provider) =>
         provider.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         provider.service?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        provider.email?.toLowerCase().includes(searchTerm.toLowerCase()),
+        provider.email?.toLowerCase().includes(searchTerm.toLowerCase())
     );
-  }, [providerDetails, searchTerm]);
+  }, [providersDetails, searchTerm]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -49,16 +47,16 @@ export function ProviderSection({ blok, className }: ProviderSectionProps) {
         align="center"
         className="mb-12"
       />
-
-      <div className="w-full max-w-2xl mx-auto mb-12">
-        <SearchField
-          placeholder={blok?.search_placeholder ?? "Search..."}
-          value={searchTerm}
-          onChange={handleSearchChange}
-          className="w-full"
-        />
-      </div>
-
+      {providersDetails.length > 0 && (
+        <div className="w-full max-w-2xl mx-auto mb-12">
+          <SearchField
+            placeholder={blok?.search_placeholder ?? "Search..."}
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="w-full"
+          />
+        </div>
+      )}
       {filteredProviders.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center container mx-auto px-4">
           {filteredProviders.map((provider) => (
@@ -74,13 +72,13 @@ export function ProviderSection({ blok, className }: ProviderSectionProps) {
           </div>
           <h3 className="text-xl font-semibold text-gray-900 mb-2">
             {searchTerm.trim()
-              ? "No providers found"
-              : "No providers available"}
+              ? blok.search_no_provider
+              : blok.no_provider_yet}
           </h3>
           <p className="text-gray-600">
             {searchTerm.trim()
-              ? `No providers found for "${searchTerm}"`
-              : "Check back later for available service providers"}
+              ? `${blok.no_provider_search_item} ${searchTerm}`
+              : blok.no_provider_description}
           </p>
         </div>
       )}

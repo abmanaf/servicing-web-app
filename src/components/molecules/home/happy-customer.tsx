@@ -6,7 +6,7 @@ import {
   getBackgroundColor,
   getHeaderColor,
 } from "@/shared/layout/storyblok-global-style";
-import { customRenderOptions } from "@/shared/layout/custome-render";
+import { customRenderer } from "@/shared/layout/custome-render";
 import { cn } from "@/lib/utils";
 import HappyCustomerImageFallback from "@/components/atoms/home/happy-customer-image-fallback";
 import ImageDecorator from "@/shared/layout/image-decorator";
@@ -74,8 +74,8 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
           )}
 
           {blok.description && (
-            <div className="prose prose-lg space-y-4 max-w-none">
-              {render(blok.description, customRenderOptions)}
+            <div className="prose prose-lg space-y-0 max-w-none">
+              {render(blok.description, customRenderer)}
             </div>
           )}
 
@@ -88,7 +88,7 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
                   variant="primary"
                   className="py-4 gap-2"
                 >
-                  <Link href={btn.link?.url ?? btn.link?.cached_url ?? "#"}>
+                  <Link href={btn.link?.url || btn.link?.cached_url || "#"}>
                     {btn.label}
                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </Link>
