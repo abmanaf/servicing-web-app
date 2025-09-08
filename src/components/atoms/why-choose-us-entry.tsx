@@ -29,17 +29,17 @@ export function WhyChooseUsEntry({ blok }: WhyChooseUsEntryProps) {
         )}
       </div>
 
-      <div className="lg:w-1/2">
+      <div className="w-full md:w-5/6 lg:w-1/2">
         {blok.image && blok.image.filename ? (
-          <div className="relative h-64 lg:h-96 rounded-2xl overflow-hidden">
+          <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden">
             <Image
               src={blok.image.filename}
-              alt={blok.image.alt || blok.headline || "Feature image"}
+              alt={blok.image.alt ?? blok.headline ?? "Feature image"}
               fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover w-full h-full"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
           </div>
         ) : (
           <div className="h-64 lg:h-96 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">

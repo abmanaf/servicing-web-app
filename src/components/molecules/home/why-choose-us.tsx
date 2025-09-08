@@ -6,6 +6,8 @@ import { SectionHeader } from "@/components/atoms/section-header";
 import { WhyChooseUsEntry } from "@/components/atoms/why-choose-us-entry";
 import type { WhyChooseUs as WhyChooseUsType, Entries } from "@/types";
 import { render } from "storyblok-rich-text-react-renderer";
+import { customRenderer } from "@/shared/layout/custome-render";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -70,24 +72,28 @@ function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
         {entries.map((entry) => (
           <div key={entry._uid} className="p-6">
             <div className="space-y-6">
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
                   {entry.headline ?? ""}
                 </h3>
+                <div className="flex flex-col-reverse gap-4">
                 {entry.description && (
-                  <div className="space-y-3 mb-6 text-gray-600 leading-relaxed">
-                    {render(entry.description)}
+                  <div className="space-y-1 mb-0 text-gray-600 leading-relaxed">
+                    {render(entry.description, customRenderer)}
                   </div>
                 )}
                 {entry.image && (
                   <div className="relative h-64 rounded-xl overflow-hidden">
-                    <img
+                    <Image
                       src={entry.image.filename ?? ""}
                       alt={entry.image.alt ?? entry.headline ?? ""}
                       className="w-full h-full object-cover"
+                      fill
+                      sizes="100vw"
                     />
                   </div>
                 )}
+                </div>
               </div>
             </div>
           </div>
