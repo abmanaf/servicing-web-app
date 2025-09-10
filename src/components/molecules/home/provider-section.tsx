@@ -8,6 +8,10 @@ import { useState, useMemo } from "react";
 import { ContainerSection } from "@/shared/layout/container-section";
 import { Search } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  getGridColumns,
+  getHeaderColor,
+} from "@/shared/layout/storyblok-global-style";
 
 type ProviderSectionProps = {
   blok: ProviderSectionType;
@@ -34,6 +38,10 @@ export function ProviderSection({ blok, className }: ProviderSectionProps) {
     setSearchTerm(e.target.value);
   };
 
+  const columns = getGridColumns(blok.columns ?? "Three");
+  const headerColor = getHeaderColor(
+    (blok.headline?.[0].highlight as string) ?? "Default Highlight",
+  );
   return (
     <ContainerSection
       className={cn(className, "mx-auto")}
@@ -46,6 +54,7 @@ export function ProviderSection({ blok, className }: ProviderSectionProps) {
         description={blok?.description || ""}
         align="center"
         className="mb-12"
+        titleClassName={headerColor}
       />
       {providersDetails.length > 0 && (
         <div className="w-full max-w-2xl mx-auto mb-12">
@@ -58,7 +67,13 @@ export function ProviderSection({ blok, className }: ProviderSectionProps) {
         </div>
       )}
       {filteredProviders.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center container mx-auto px-4">
+        <div
+          className={cn(
+            "grid grid-cols-1 md:grid-cols-2 container mx-auto px-4",
+            columns,
+            "gap-8",
+          )}
+        >
           {filteredProviders.map((provider) => (
             <div key={provider._uid} className="w-full">
               <ProviderCard blok={provider} />

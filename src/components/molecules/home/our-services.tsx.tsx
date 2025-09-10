@@ -9,6 +9,7 @@ import type {
 import {
   getBackgroundColor,
   getGridColumns,
+  getHeaderColor,
 } from "@/shared/layout/storyblok-global-style";
 
 import { cn } from "@/lib/utils";
@@ -29,6 +30,9 @@ export function OurServices({ blok, className }: OurServicesProps) {
 
   const backgroundColor = getBackgroundColor(blok.background_color ?? "Muted");
   const columns = getGridColumns(blok.columns ?? "Three");
+  const headerColor = getHeaderColor(
+    (blok.headline?.[0].highlight as string) ?? "Default Highlight",
+  );
   return (
     <ContainerSection
       className={className}
@@ -42,6 +46,7 @@ export function OurServices({ blok, className }: OurServicesProps) {
         description={blok.description ?? ""}
         className="mb-16"
         align="center"
+        titleClassName={headerColor}
       />
 
       {gridCards.length > 0 && (
@@ -61,12 +66,7 @@ export function OurServices({ blok, className }: OurServicesProps) {
       {blok.general_button && blok.general_button.length > 0 && (
         <div className="flex justify-center gap-6 mt-16">
           {blok.general_button.map((button) => (
-            <Button
-              asChild
-              key={button._uid}
-              className="px-10 py-6 text-lg"
-              variant={"primary"}
-            >
+            <Button asChild key={button._uid} className="px-10 py-6 text-lg">
               <Link href={button.link?.url || button.link?.cached_url || "#"}>
                 {button.label}
               </Link>

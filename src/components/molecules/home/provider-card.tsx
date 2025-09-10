@@ -63,7 +63,7 @@ export function ProviderCard({ blok }: ProviderCardProps) {
       {blok?.get_in_touch?.length && (
         <CardFooter className="flex justify-end gap-2 border-t pt-4">
           {blok.get_in_touch.map((action) => (
-            <Button key={action._uid} variant="outline" size="sm" asChild>
+            <Button key={action._uid} size="sm" asChild>
               <Link
                 href={action?.link?.url || action?.link?.cached_url || "#"}
                 className="text-sm"

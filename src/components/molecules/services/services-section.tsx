@@ -6,6 +6,7 @@ import type {
 } from "@/types";
 import ServiceFallback from "./service-fallback";
 import { SectionHeader } from "@/components/atoms/section-header";
+import { getHeaderColor } from "@/shared/layout/storyblok-global-style";
 
 interface ServicesSectionProps {
   blok: ServicesSectionType;
@@ -16,10 +17,13 @@ export function ServicesSection({ blok, className }: ServicesSectionProps) {
   const services: ServicesPartType[] = Array.isArray(blok?.sevice)
     ? blok.sevice.filter(
         (service): service is ServicesPartType =>
-          service.component === "servicesPart"
+          service.component === "servicesPart",
       )
     : [];
 
+  const headerColor = getHeaderColor(
+    (blok.headline?.[0].highlight as string) ?? "Default Highlight",
+  );
   return (
     <ContainerSection
       className={className}
@@ -29,10 +33,11 @@ export function ServicesSection({ blok, className }: ServicesSectionProps) {
       id="services-section"
     >
       <SectionHeader
-        title={blok.headline?.[0].text as string}
+        title={(blok.headline?.[0].text as string) ?? ""}
         description={blok.description ?? ""}
         className="mb-8"
         align="center"
+        titleClassName={headerColor}
       />
       {services.length > 0 ? (
         <div className="divide-y container mx-auto lg:px-4">
