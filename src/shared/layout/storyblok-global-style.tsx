@@ -26,25 +26,42 @@ export const getGridColumns = (columns: string) => {
 export const getHeaderColor = (color: string) => {
   switch (color) {
     case "Default Highlight":
-      return "text-white";
+      return "text-gray-700";
     case "Primary Highlight":
       return "text-primary";
     case "Secondary Highlight":
       return "text-blue-500";
+    case "White Highlight":
+      return "text-white";
     default:
       return "text-gray-900";
+  }
+};
+
+export const getAspectRatioClass = (aspectRatio: string) => {
+  switch (aspectRatio) {
+    case "square":
+      return "aspect-square";
+    case "portrait":
+      return "aspect-[3/4]";
+    case "landscape":
+      return "aspect-[4/3]";
+    case "auto":
+    default:
+      return "aspect-auto";
   }
 };
 
 export const getHeightClass = (imageHeight: string) => {
   switch (imageHeight) {
     case "Small":
-      return "h-[50vh]";
+      return "h-[55vh]";
+    case "Medium":
+      return "h-[60vh]";
     case "Large":
-      return "h-[90vh]";
+      return "h-[75vh]";
     case "Full":
       return "h-screen";
-    case "Medium":
     default:
       return "h-[70vh]";
   }
@@ -83,5 +100,18 @@ export const getTextColorClass = (textColor: string) => {
     case "White":
     default:
       return "text-white";
+  }
+};
+
+export const getBackgroundColorClass = (backgroundColor: string) => {
+  switch (backgroundColor) {
+    case "White":
+      return "white";
+    case "Gradient":
+      return "gradient";
+    case "Custom":
+      return "custom";
+    default:
+      return "default";
   }
 };
