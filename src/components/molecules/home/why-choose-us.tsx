@@ -17,7 +17,7 @@ interface WhyChooseUsProps {
   className?: string;
 }
 
-function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
+export function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
   const [activeTab, setActiveTab] = useState(0);
 
   const entries: Entries[] = Array.isArray(blok?.entries)
@@ -116,5 +116,3 @@ function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
     </ContainerSection>
   );
 }
-
-export default WhyChooseUs;

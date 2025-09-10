@@ -11,7 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 import ImageFallback from "@/shared/layout/image-fallback";
 
-const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
+export function HeroSection({ blok }: { blok: HeroSectionType }) {
   const headerColor = getHeaderColor(
     blok.headline?.[0].highlight ?? "Default Highlight",
   );
@@ -104,6 +104,4 @@ const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
       </div>
     </Container>
   );
-};
-
-export default HeroSection;
+}
