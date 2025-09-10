@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import {
   getBackgroundColor,
   getHeaderColor,
+  getAspectRatioClass,
 } from "@/shared/layout/storyblok-global-style";
 import { customRenderer } from "@/shared/layout/custome-render";
 import { cn } from "@/lib/utils";
@@ -12,6 +13,7 @@ import HappyCustomerImageFallback from "@/components/atoms/home/happy-customer-i
 import ImageDecorator from "@/shared/layout/image-decorator";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 interface HappyCustomerProps {
   blok: HappyCustomerType;
@@ -27,7 +29,7 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
     ? "flex-col-reverse"
     : "flex-col";
 
-  const imageClass = blok.image_aspect_ratio ? "aspect-[4/3]" : "aspect-auto";
+  const imageClass = getAspectRatioClass(blok.image_aspect_ratio ?? "auto");
 
   const backgroundColor = getBackgroundColor(
     blok.background_color ?? "Secondary",
@@ -82,12 +84,7 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
           {blok.button && blok.button.length > 0 && (
             <div className="flex flex-wrap gap-4">
               {blok.button.map((btn) => (
-                <Button
-                  asChild
-                  key={btn._uid}
-                  variant="primary"
-                  className="py-4 gap-2"
-                >
+                <Button asChild key={btn._uid} className="py-4 gap-2">
                   <Link href={btn.link?.url || btn.link?.cached_url || "#"}>
                     {btn.label}
                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -98,29 +95,38 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
           )}
         </div>
 
-        <div className="flex-1">
-          {blok.image?.filename ? (
+        {blok.image?.filename ? (
+          <div className="flex-1 w-full">
             <div
-              className={cn("relative overflow-hidden rounded-2xl", imageClass)}
+              className={cn(
+                "relative overflow-hidden rounded-2xl shadow-xl w-full",
+                "max-w-full mx-auto",
+                imageClass,
+              )}
             >
-              <img
+              <Image
                 src={blok.image.filename}
-                alt={blok.image.alt || "Happy customer"}
+                alt={
+                  blok.image.alt ??
+                  blok.headline?.[0]?.text ??
+                  "About summary image"
+                }
+                fill
+                priority
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
               <ImageDecorator />
             </div>
-          ) : (
-            <div className="aspect-[4/3] bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl flex items-center justify-center">
-              <div className="text-center text-gray-400">
-                <HappyCustomerImageFallback />
-                <p className="text-sm font-medium">
-                  {blok.fallback_description}
-                </p>
-              </div>
+          </div>
+        ) : (
+          <div className="aspect-[4/3] bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl flex items-center justify-center">
+            <div className="text-center text-gray-400">
+              <HappyCustomerImageFallback />
+              <p className="text-sm font-medium">{blok.fallback_description}</p>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </ContainerSection>
   );

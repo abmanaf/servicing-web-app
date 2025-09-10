@@ -8,7 +8,8 @@ import type { WhyChooseUs as WhyChooseUsType, Entries } from "@/types";
 import { render } from "storyblok-rich-text-react-renderer";
 import { customRenderer } from "@/shared/layout/custome-render";
 import Image from "next/image";
-
+import { Button } from "@/components/ui/button";
+import { getHeaderColor } from "@/shared/layout/storyblok-global-style";
 import { cn } from "@/lib/utils";
 
 interface WhyChooseUsProps {
@@ -25,6 +26,10 @@ function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
       )
     : [];
 
+  const headerColor = getHeaderColor(
+    (blok.headline?.[0].highlight as string) ?? "Default Highlight",
+  );
+
   return (
     <ContainerSection
       className={className}
@@ -34,28 +39,29 @@ function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
       id="why-choose-us"
     >
       <SectionHeader
-        title={blok?.headline?.[0]?.text as string}
+        title={(blok?.headline?.[0]?.text as string) ?? ""}
         description={blok?.description ?? ""}
         align="center"
         className="mb-12"
+        titleClassName={headerColor}
       />
 
       {entries.length > 1 && (
         <div className="hidden md:flex flex-wrap justify-center gap-3 mb-16">
           {entries.map((entry, index) => (
-            <button
+            <Button
               key={entry._uid}
               onClick={() => setActiveTab(index)}
               className={cn(
                 `px-6 py-2 rounded-full font-semibold text-sm lg:text-base transition-all duration-300 transform hover:scale-105 cursor-pointer ${
                   activeTab === index
-                    ? "bg-blue-600 text-white shadow scale-105"
+                    ? "bg-primary text-primary-foreground shadow scale-105"
                     : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 shadow-sm"
                 }`,
               )}
             >
               {entry.headline ?? `Option ${index + 1}`}
-            </button>
+            </Button>
           ))}
         </div>
       )}
@@ -77,22 +83,22 @@ function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
                   {entry.headline ?? ""}
                 </h3>
                 <div className="flex flex-col-reverse gap-4">
-                {entry.description && (
-                  <div className="space-y-1 mb-0 text-gray-600 leading-relaxed">
-                    {render(entry.description, customRenderer)}
-                  </div>
-                )}
-                {entry.image && (
-                  <div className="relative h-64 rounded-xl overflow-hidden">
-                    <Image
-                      src={entry.image.filename ?? ""}
-                      alt={entry.image.alt ?? entry.headline ?? ""}
-                      className="w-full h-full object-cover"
-                      fill
-                      sizes="100vw"
-                    />
-                  </div>
-                )}
+                  {entry.description && (
+                    <div className="space-y-1 mb-0 text-gray-600 leading-relaxed">
+                      {render(entry.description, customRenderer)}
+                    </div>
+                  )}
+                  {entry.image && (
+                    <div className="relative h-64 rounded-xl overflow-hidden">
+                      <Image
+                        src={entry.image.filename ?? ""}
+                        alt={entry.image.alt ?? entry.headline ?? ""}
+                        className="w-full h-full object-cover"
+                        fill
+                        sizes="100vw"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

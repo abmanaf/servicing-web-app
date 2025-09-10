@@ -8,6 +8,7 @@ import type {
 import {
   getBackgroundColor,
   getGridColumns,
+  getHeaderColor,
 } from "@/shared/layout/storyblok-global-style";
 
 import { cn } from "@/lib/utils";
@@ -30,7 +31,9 @@ export function WorkProcess({ blok, className }: WorkProcessProps) {
 
   const columns = getGridColumns(blok.columns ?? "4");
   const backgroundColor = getBackgroundColor(blok.background_color ?? "Muted");
-
+  const headerColor = getHeaderColor(
+    blok.header?.[0].highlight ?? "Default Highlight",
+  );
   return (
     <ContainerSection
       className={className}
@@ -44,6 +47,7 @@ export function WorkProcess({ blok, className }: WorkProcessProps) {
           title={blok?.header?.[0].text ?? ""}
           description={blok?.description ?? ""}
           align="center"
+          titleClassName={headerColor}
         />
       </div>
 

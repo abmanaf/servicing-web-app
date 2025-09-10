@@ -3,9 +3,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/atoms/container";
 import ImageAspectRatio from "@/components/atoms/storyblok-image";
-import { getHeaderColor } from "@/shared/layout/storyblok-global-style";
+import {
+  getHeaderColor,
+  getBackgroundColorClass,
+} from "@/shared/layout/storyblok-global-style";
 
 import { cn } from "@/lib/utils";
+import ImageFallback from "@/shared/layout/image-fallback";
 
 const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
   const headerColor = getHeaderColor(
@@ -14,16 +18,20 @@ const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
   const nextHeaderTitle = getHeaderColor(
     blok.headline?.[1].highlight ?? "Default Highlight",
   );
+
+  const backgroundColor = getBackgroundColorClass(
+    blok.background_color ?? "Default",
+  );
+
   return (
     <Container
-      background="gradient"
-      spacing="xl"
+      background={backgroundColor}
+      spacing="sm"
       alignment="start"
       withOverlay
-      className="text-white"
     >
       <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-8">
-        <div className="flex-1 max-w-2xl text-left">
+        <div className="flex-1">
           <div className="mb-4">
             {blok.headline?.[0]?.text && (
               <h1
@@ -59,13 +67,11 @@ const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
                 <Button
                   key={index}
                   asChild
-                  variant={index === 0 ? "secondary" : "outline"}
+                  variant={index === 0 ? "secondary" : "default"}
                   size="lg"
                   className={cn(
-                    "border-white",
-                    index > 0
-                      ? "text-black bg-amber-100 hover:bg-amber-200"
-                      : "",
+                    "",
+                    index > 0 ? "text-primary-foreground bg-primary" : "",
                   )}
                 >
                   <Link
@@ -81,22 +87,18 @@ const HeroSection = ({ blok }: { blok: HeroSectionType }) => {
         </div>
 
         {blok.image && blok.image.filename ? (
-          <div className="flex-1 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md">
+          <div className="hidden lg:flex flex-1 justify-center lg:justify-end">
+            <div className="relative w-full">
               <ImageAspectRatio
                 image={blok.image}
-                preserveAspectRatio={blok.preserve_image_ratio}
-                width={600}
-                height={blok.preserve_image_ratio ? undefined : 100}
-                fallback={
-                  <div className="border border-white w-full h-full max-w-md" />
-                }
+                fallback={<ImageFallback />}
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
         ) : (
-          <div className="flex-1 flex justify-center w-full h-full lg:justify-end">
-            <div className="border border-white w-full h-full max-w-md" />
+          <div className="hidden lg:flex flex-1 justify-center w-full h-full lg:justify-end">
+            <div className="border border-white w-full h-full" />
           </div>
         )}
       </div>
