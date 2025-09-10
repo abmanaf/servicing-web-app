@@ -1,8 +1,13 @@
 import { render } from "storyblok-rich-text-react-renderer";
 import type { ServicesPart as ServicesPartType } from "@/types";
 import { customRenderer } from "@/shared/layout/custome-render";
-import { getBackgroundColor } from "@/shared/layout/storyblok-global-style";
+import {
+  getBackgroundColor,
+  getHeaderColor,
+} from "@/shared/layout/storyblok-global-style";
 import { cn } from "@/lib/utils";
+import ServicePartImageFallback from "./service-part-image-fallback";
+import Image from "next/image";
 
 interface ServicesPartProps {
   blok: ServicesPartType;
@@ -19,6 +24,12 @@ export function ServicesPart({ blok }: ServicesPartProps) {
 
   const backgroundColor = getBackgroundColor(
     blok.section_background_color ?? "Secondary",
+  );
+
+  const headerColor = getHeaderColor(
+    blok.headline?.map(
+      (headline) => headline.highlight ?? "Default Highlight",
+    )[0] ?? "Default Highlight",
   );
 
   const imageAspectRatio = blok.image_aspect_ratio
@@ -40,7 +51,10 @@ export function ServicesPart({ blok }: ServicesPartProps) {
             {blok.headline.map((headline) => (
               <h2
                 key={headline._uid}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+                className={cn(
+                  "text-lg md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight",
+                  headerColor,
+                )}
               >
                 {headline.text}
               </h2>
@@ -63,10 +77,12 @@ export function ServicesPart({ blok }: ServicesPartProps) {
               imageAspectRatio,
             )}
           >
-            <img
+            <Image
               src={blok.image.filename}
-              alt={blok.image.alt || blok.headline?.[0]?.text}
-              className="object-cover"
+              alt={blok.image.alt || (blok.headline?.[0]?.text as string)}
+              className="object-cover w-full h-full"
+              height={600}
+              width={600}
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
@@ -79,21 +95,7 @@ export function ServicesPart({ blok }: ServicesPartProps) {
             )}
           >
             <div className="text-center text-gray-400">
-              <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-md">
-                <svg
-                  className="w-10 h-10"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                  />
-                </svg>
-              </div>
+              <ServicePartImageFallback />
               <p className="text-sm font-medium">Service Image</p>
             </div>
           </div>

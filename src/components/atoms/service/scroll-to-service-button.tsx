@@ -22,7 +22,6 @@ export default function ScrollToServiceButton({
       whileHover={{ scale: 1.05 }}
     >
       <Button
-        variant="primary"
         className="px-10 py-6 text-lg cursor-pointer"
         onClick={scrollToService}
       >

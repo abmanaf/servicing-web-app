@@ -15,7 +15,7 @@ const ImageAspectRatio = ({
   preserveAspectRatio = true,
   className = "",
   width = 600,
-  height = 400,
+  height = 600,
   fallback,
 }: StoryblokImageProps) => {
   if (!image?.filename) return fallback;
@@ -28,8 +28,8 @@ const ImageAspectRatio = ({
       height={height}
       className={
         preserveAspectRatio
-          ? `aspect-auto rounded-lg shadow-2xl ${className}`
-          : `aspect-square object-cover rounded-lg shadow-2xl ${className}`
+          ? `aspect-auto rounded-lg ${className}`
+          : `aspect-square object-cover rounded-lg ${className}`
       }
       style={preserveAspectRatio ? {} : { aspectRatio: "1/1" }}
     />
