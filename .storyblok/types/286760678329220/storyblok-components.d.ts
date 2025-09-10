@@ -687,10 +687,10 @@ export interface TeamCard {
 }
 
 export interface TestimonialCard {
-  feedback?: string;
-  image?: StoryblokAsset;
   name?: string;
   role?: string;
+  feedback?: string;
+  image?: StoryblokAsset;
   component: "testimonialCard";
   _uid: string;
   [k: string]: unknown;
@@ -700,6 +700,7 @@ export interface TestimonialSection {
   headline?: Headline[];
   description?: string;
   testimonial_card?: TestimonialCard[];
+  background_color?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   component: "testimonialSection";
   _uid: string;
   [k: string]: unknown;
