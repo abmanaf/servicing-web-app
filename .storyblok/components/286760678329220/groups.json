@@ -1,5 +1,19 @@
 [
   {
+    "name": "About",
+    "id": 88697676658519,
+    "uuid": "037990ea-e5ae-40f9-843f-221ca6e423f1",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "About Summary",
+    "id": 88804120721520,
+    "uuid": "f0684c7c-8f6b-4c04-ae94-84bcc0b8f570",
+    "parent_id": 88697676658519,
+    "parent_uuid": "037990ea-e5ae-40f9-843f-221ca6e423f1"
+  },
+  {
     "name": "Footer",
     "id": 86957533556953,
     "uuid": "66337e46-8cb1-4c6d-8216-78d17bbfef5e",
@@ -61,6 +75,34 @@
     "uuid": "64d12569-e62f-4103-946c-33ef56725a59",
     "parent_id": null,
     "parent_uuid": null
+  },
+  {
+    "name": "Stats Card",
+    "id": 88780974934095,
+    "uuid": "1aff8829-ff1b-4e9e-87cf-f855893b161e",
+    "parent_id": 88697676658519,
+    "parent_uuid": "037990ea-e5ae-40f9-843f-221ca6e423f1"
+  },
+  {
+    "name": "Stats Section",
+    "id": 88781096278096,
+    "uuid": "59f34444-e9cc-41b8-b078-23b71ff2cd25",
+    "parent_id": 88697676658519,
+    "parent_uuid": "037990ea-e5ae-40f9-843f-221ca6e423f1"
+  },
+  {
+    "name": "Team",
+    "id": 88804460345460,
+    "uuid": "e8caddea-ac8d-4a45-b168-99ea1a88724e",
+    "parent_id": 88697676658519,
+    "parent_uuid": "037990ea-e5ae-40f9-843f-221ca6e423f1"
+  },
+  {
+    "name": "Testimonial",
+    "id": 88805120022645,
+    "uuid": "23a8e40b-b3a2-4da1-93ba-b9769c4dd14a",
+    "parent_id": 88697676658519,
+    "parent_uuid": "037990ea-e5ae-40f9-843f-221ca6e423f1"
   },
   {
     "name": "why Choose Us",
