@@ -5,7 +5,7 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   containerClassName?: string;
-  background?: "default" | "gradient" | "custom";
+  background?: "white" | "default" | "gradient" | "custom";
   spacing?: "none" | "sm" | "md" | "lg" | "xl";
   alignment?: "start" | "center" | "end";
   fullWidth?: boolean;
@@ -23,17 +23,18 @@ const Container = ({
   withOverlay = false,
 }: SectionProps) => {
   const backgroundClasses = {
-    default: "bg-white",
+    white: "bg-white",
     gradient: "bg-gradient-to-br from-blue-900 to-purple-800",
-    custom: "",
+    custom: "bg-gradient-to-br from-primary to-primary-foreground",
+    default: "bg-gray-50",
   };
 
   const spacingClasses = {
     none: "py-0",
-    sm: "py-8",
-    md: "py-12",
-    lg: "py-16",
-    xl: "py-24",
+    sm: "py-2",
+    md: "py-4",
+    lg: "py-6",
+    xl: "py-8",
   };
 
   const alignmentClasses = {

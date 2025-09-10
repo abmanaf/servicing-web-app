@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 
 interface SectionHeaderProps {
   title: string;
+  titleClassName?: string;
   description?: string;
   className?: string;
   titleAs?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -10,6 +11,7 @@ interface SectionHeaderProps {
 
 export function SectionHeader({
   title,
+  titleClassName,
   description,
   className,
   titleAs: TitleComponent = "h2",
@@ -26,6 +28,7 @@ export function SectionHeader({
       <TitleComponent
         className={cn(
           "text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl",
+          titleClassName,
           { "mb-4": description },
         )}
       >
