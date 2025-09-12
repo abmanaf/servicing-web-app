@@ -509,7 +509,6 @@ export interface NavBar {
     | WorkProcessCard
   )[];
   header_nav?: HeaderNav[];
-  auth_item?: AuthItem[];
   component: "navBar";
   _uid: string;
   [k: string]: unknown;
