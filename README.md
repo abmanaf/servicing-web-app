@@ -19,12 +19,11 @@
   
   <div style="margin: 1rem 0;">
     <a href="#readme"><img src="https://img.shields.io/badge/EN-flag.svg?style=flat-square" alt="English" height="20"></a>
-    <a href="docs/README.fr.md"><img src="https://img.shields.io/badge/FR-flag.svg?style=flat-square" alt="Français" height="20"></a>
     <a href="docs/README.de.md"><img src="https://img.shields.io/badge/DE-flag.svg?style=flat-square" alt="Deutsch" height="20"></a>
   </div>
 </div>
 
-## 🌟 Features / Fonctionnalités / Funktionen
+## 🌟 Features / Funktionen
 
 <details>
 <summary>🇬🇧 English</summary>
@@ -37,7 +36,7 @@
 - **Service Management** - Browse, search, and manage service providers
 
 </details>
-
+<!--
 <details>
 <summary>🇫🇷 Français</summary>
 
@@ -49,7 +48,7 @@
 - **Gestion des services** - Parcourez, recherchez et gérez des prestataires de services
 
 </details>
-
+-->
 <details>
 <summary>🇩🇪 Deutsch</summary>
 
@@ -62,30 +61,30 @@
 
 </details>
 
-## 🚀 Getting Started / Pour commencer / Erste Schritte
+## 🚀 Getting Started / Erste Schritte
 
-### Prerequisites / Prérequis / Voraussetzungen
+### Prerequisites Voraussetzungen
 
-- Node.js 18.0 or later / ou version ultérieure / oder höher
-- pnpm (recommended) or npm / ou npm / oder npm
-- Storyblok space ID and access token / ID d'espace et jeton d'accès Storyblok / Storyblok-Space-ID und Zugriffstoken
+- Node.js 18.0 or later / oder höher
+- pnpm (recommended) or npm / oder npm
+- Storyblok space ID and access token / Storyblok-Space-ID und Zugriffstoken
 
-### Installation / Installation / Installation
+### Installation / Installation
 
-1. Clone the repository / Cloner le dépôt / Repository klonen
+1. Clone the repository / Repository klonen
    ```bash
    git clone https://github.com/yourusername/servicing-app.git
    cd servicing-app
    ```
 
-2. Install dependencies / Installer les dépendances / Abhängigkeiten installieren
+2. Install dependencies / Abhängigkeiten installieren
    ```bash
    pnpm install
-   # or / ou / oder
+   # or / oder
    npm install
    ```
 
-3. Set up environment variables / Configurer les variables d'environnement / Umgebungsvariablen einrichten
+3. Set up environment variables / Umgebungsvariablen einrichten
    ```bash
    cp .env.example .env.local
    ```
@@ -93,31 +92,30 @@
    Mettez à jour le fichier `.env.local` avec vos identifiants Storyblok.
    Aktualisieren Sie die Datei `.env.local` mit Ihren Storyblok-Zugangsdaten.
 
-4. Run the development server / Lancer le serveur de développement / Entwicklungsserver starten
+4. Run the development server / Entwicklungsserver starten
    ```bash
    pnpm dev
-   # or / ou / oder
+   # or / oder
    npm run dev
    ```
 
-5. Open in your browser / Ouvrir dans le navigateur / Im Browser öffnen:
+5. Open in your browser / Im Browser öffnen:
    - English: [http://localhost:3000](http://localhost:3000)
-   - Français: [http://localhost:3000/fr](http://localhost:3000/fr)
    - Deutsch: [http://localhost:3000/de](http://localhost:3000/de)
 
-## 🛠️ Development / Développement / Entwicklung
+## 🛠️ Development / Entwicklung
 
-### Available Scripts / Commandes disponibles / Verfügbare Skripte
+### Available Scripts / Verfügbare Skripte
 
-| Command / Commande / Befehl | Description / Description / Beschreibung |
+| Command / Befehl | Description / Beschreibung |
 |-----------------------------|------------------------------------------|
-| `pnpm dev` | Start development server / Démarrer le serveur de développement / Entwicklungsserver starten |
-| `pnpm build` | Build for production / Construire pour la production / Produktionsversion erstellen |
-| `pnpm start` | Start production server / Démarrer le serveur de production / Produktionsserver starten |
-| `pnpm lint` | Run ESLint / Exécuter ESLint / ESLint ausführen |
-| `pnpm format` | Format code with Prettier / Formater le code avec Prettier / Code mit Prettier formatieren |
-| `pnpm storyblok:gen` | Generate TypeScript types / Générer les types TypeScript / TypeScript-Typen generieren |
-| `pnpm storyblok:pull` | Pull Storyblok schemas / Récupérer les schémas Storyblok / Storyblok-Schemata abrufen |
+| `pnpm dev` | Start development server / Entwicklungsserver starten |
+| `pnpm build` | Build for production / Produktionsversion erstellen |
+| `pnpm start` | Start production server / Produktionsserver starten |
+| `pnpm lint` | Run ESLint / ESLint ausführen |
+| `pnpm format` | Format code with Prettier / Code mit Prettier formatieren |
+| `pnpm storyblok:gen` | Generate TypeScript types / TypeScript-Typen generieren |
+| `pnpm storyblok:pull` | Pull Storyblok schemas / Storyblok-Schemata abrufen |
 
 ### Project Structure
 
@@ -163,26 +161,26 @@ NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN=your-access-token
 NEXT_PUBLIC_STORYBLOK_ENV=dev # or 'prod' for production
 ```
 
-## 🤝 Contributing / Contribution / Mitwirken
+## 🤝 Contributing / Mitwirken
 
 We welcome contributions from everyone! Here's how you can help:
 
-1. Fork the repository / Forkez le dépôt / Forke das Repository
+1. Fork the repository / Forke das Repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request / Ouvrir une Pull Request / Eine Pull-Request öffnen
+5. Open a Pull Request / Eine Pull-Request öffnen
 
-### Translation Guidelines / Directives de traduction / Übersetzungsrichtlinien
+### Translation Guidelines / Übersetzungsrichtlinien
 
-- Keep translations clear and concise / Gardez les traductions claires et concises / Halten Sie Übersetzungen klar und präzise
-- Maintain consistent terminology / Maintenez une terminologie cohérente / Halten Sie die Terminologie konsistent
-- Follow the existing code style / Suivez le style de code existant / Befolgen Sie den vorhandenen Codestil
-- Update all language versions when making changes / Mettez à jour toutes les versions linguistiques lors des modifications / Aktualisieren Sie alle Sprachversionen bei Änderungen
+- Keep translations clear and concise / Halten Sie Übersetzungen klar und präzise
+- Maintain consistent terminology / Halten Sie die Terminologie konsistent
+- Follow the existing code style / Befolgen Sie den vorhandenen Codestil
+- Update all language versions when making changes / Aktualisieren Sie alle Sprachversionen bei Änderungen
 
-## 🙏 Acknowledgments / Remerciements / Danksagungen
+## 🙏 Acknowledgments / Danksagungen
 
-### Resources / Ressources / Ressourcen
+### Resources / Ressourcen
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Storyblok Documentation](https://www.storyblok.com/docs)
@@ -190,9 +188,9 @@ We welcome contributions from everyone! Here's how you can help:
 - [Radix UI Documentation](https://www.radix-ui.com/docs)
 - [React Hook Form](https://react-hook-form.com/)
 
-### Contributors / Contributeurs / Mitwirkende
+### Contributors / Mitwirkende
 
-- [Alibaba](https://github.com/abmanaf) - Project Lead / Chef de projet / Projektleiter
+- [Alibaba](https://github.com/abmanaf) - Project Lead / Projektleiter
 
 ---
 
@@ -200,7 +198,6 @@ We welcome contributions from everyone! Here's how you can help:
   <p>Made with ❤️ by <a href="https://github.com/yourusername">Alibaba</a></p>
   <p>Available in: 
     <a href="#readme">English</a> | 
-    <a href="docs/README.fr.md">Français</a> | 
     <a href="docs/README.de.md">Deutsch</a>
   </p>
 </div>
