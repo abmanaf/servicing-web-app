@@ -1,8 +1,8 @@
 "use client";
 
-import { SectionHeader } from "@/components/atoms/section-header";
-import { ProviderCard } from "./provider-card";
-import { SearchField } from "@/components/atoms/search";
+import { SectionHeader } from "@/components/atoms/shared/section-header";
+import { ProviderCard } from "../../atoms/home/provider-card";
+import { SearchField } from "@/components/atoms/home/search";
 import type { ProviderSection as ProviderSectionType } from "@/types";
 import { useState, useMemo } from "react";
 import { ContainerSection } from "@/shared/layout/container-section";

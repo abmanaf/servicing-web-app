@@ -1,5 +1,5 @@
 import { ContainerSection } from "@/shared/layout/container-section";
-import { SectionHeader } from "@/components/atoms/section-header";
+import { SectionHeader } from "@/components/atoms/shared/section-header";
 import { WorkProcessCard } from "@/components/atoms/service/work-process-card";
 import type {
   WorkProcess as WorkProcessType,

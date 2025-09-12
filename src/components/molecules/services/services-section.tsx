@@ -5,7 +5,7 @@ import type {
   ServicesPart as ServicesPartType,
 } from "@/types";
 import ServiceFallback from "./service-fallback";
-import { SectionHeader } from "@/components/atoms/section-header";
+import { SectionHeader } from "@/components/atoms/shared/section-header";
 import { getHeaderColor } from "@/shared/layout/storyblok-global-style";
 
 interface ServicesSectionProps {

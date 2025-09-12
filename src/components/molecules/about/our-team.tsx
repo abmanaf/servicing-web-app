@@ -1,5 +1,5 @@
 import { ContainerSection } from "@/shared/layout/container-section";
-import { SectionHeader } from "@/components/atoms/section-header";
+import { SectionHeader } from "@/components/atoms/shared/section-header";
 import { TeamCard } from "@/components/atoms/about/team-card";
 import type { OurTeam as OurTeamType, TeamCard as TeamCardType } from "@/types";
 import {

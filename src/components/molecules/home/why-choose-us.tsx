@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { ContainerSection } from "@/shared/layout/container-section";
-import { SectionHeader } from "@/components/atoms/section-header";
-import { WhyChooseUsEntry } from "@/components/atoms/why-choose-us-entry";
+import { SectionHeader } from "@/components/atoms/shared/section-header";
+import { WhyChooseUsEntry } from "@/components/atoms/home/why-choose-us-entry";
 import type { WhyChooseUs as WhyChooseUsType, Entries } from "@/types";
 import { render } from "storyblok-rich-text-react-renderer";
 import { customRenderer } from "@/shared/layout/custome-render";
