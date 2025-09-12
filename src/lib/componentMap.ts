@@ -11,6 +11,8 @@ import { StatsSection } from "@/components/molecules/about/stats-section";
 import { AboutSummary } from "@/components/molecules/about/summary";
 import { OurTeam } from "@/components/molecules/about/our-team";
 import { TestimonialSection } from "@/components/molecules/about/testimonial-section";
+import { FAQSection } from "@/components/molecules/faq/faq-section";
+import ProvidersInfo from "@/components/molecules/service-provider/details";
 
 export const componentMap = {
   page: Page,
@@ -26,4 +28,6 @@ export const componentMap = {
   aboutSummary: AboutSummary,
   ourTeam: OurTeam,
   testimonialSection: TestimonialSection,
+  faqSection: FAQSection,
+  providersInfo: ProvidersInfo,
 };

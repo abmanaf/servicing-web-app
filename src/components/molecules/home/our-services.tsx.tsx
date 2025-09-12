@@ -1,5 +1,5 @@
 import { ContainerSection } from "@/shared/layout/container-section";
-import { SectionHeader } from "@/components/atoms/section-header";
+import { SectionHeader } from "@/components/atoms/shared/section-header";
 import { GridCard } from "@/components/atoms/home/grid-card";
 import { Button } from "@/components/ui/button";
 import type {

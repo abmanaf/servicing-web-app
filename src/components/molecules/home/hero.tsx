@@ -1,7 +1,7 @@
 import type { HeroSection as HeroSectionType } from "@/types";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import Container from "@/components/atoms/container";
+import Container from "@/components/atoms/shared/container";
 import ImageAspectRatio from "@/components/atoms/storyblok-image";
 import {
   getHeaderColor,
