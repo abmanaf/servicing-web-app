@@ -14,6 +14,20 @@
     "parent_uuid": "037990ea-e5ae-40f9-843f-221ca6e423f1"
   },
   {
+    "name": "chatbot",
+    "id": 89718753406391,
+    "uuid": "33a7d21d-ea65-458a-a2e1-7726c6086b90",
+    "parent_id": 86957415608535,
+    "parent_uuid": "7befbfe1-76f1-474b-86bf-1666ea942d92"
+  },
+  {
+    "name": "FAQ",
+    "id": 89680608288138,
+    "uuid": "3b008549-3d6d-4be2-92c2-19cd4f589d0d",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
     "name": "Footer",
     "id": 86957533556953,
     "uuid": "66337e46-8cb1-4c6d-8216-78d17bbfef5e",
@@ -68,6 +82,13 @@
     "uuid": "22ff9ec0-e832-46c9-8ad3-deba0a5ad528",
     "parent_id": 84735661700975,
     "parent_uuid": "2af23288-3d14-432f-8d80-6a07c9dc6fc8"
+  },
+  {
+    "name": "Providers",
+    "id": 89761629875698,
+    "uuid": "2b9f0466-80fc-4bf6-acaa-34945c2f77e6",
+    "parent_id": null,
+    "parent_uuid": null
   },
   {
     "name": "Services Page",
