@@ -7,6 +7,7 @@ import { Footer } from "@/shared/layout/footer";
 import { NavBar, FooterSection, ChatBot } from "@/types";
 import { getSiteConfig } from "@/lib/fetch-data";
 import ChatbotWidget from "@/shared/layout/chatbot-widget";
+import ErrorPage from "@/shared/layout/error-page";
 
 interface Props {
   params: Promise<{ slug?: string[] }>;
@@ -44,15 +45,15 @@ export default async function Page({ params }: Props) {
     }
 
     const navbarData = siteConfig?.content?.body?.find(
-      (item: NavBar) => item.component === "navBar",
+      (item: NavBar) => item.component === "navBar"
     ) as NavBar;
 
     const footerData = siteConfig?.content?.body?.find(
-      (item: FooterSection) => item.component === "footerSection",
+      (item: FooterSection) => item.component === "footerSection"
     ) as FooterSection;
 
     const chatbotData = siteConfig?.content?.body?.find(
-      (item: ChatBot) => item.component === "chatBot",
+      (item: ChatBot) => item.component === "chatBot"
     ) as ChatBot;
 
     return (
@@ -63,8 +64,10 @@ export default async function Page({ params }: Props) {
         {chatbotData && <ChatbotWidget blok={chatbotData} />}
       </>
     );
-  } catch (error) {
-    console.error("Error:", error);
-    notFound();
+  } catch (error: any) {
+    if (error?.response?.status === 404) {
+      return notFound();
+    }
+    return <ErrorPage />;
   }
 }
