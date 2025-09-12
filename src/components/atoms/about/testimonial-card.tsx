@@ -32,7 +32,7 @@ const TestimonialCard = ({ blok }: TestimonialCardProps) => {
 
       <div className="flex flex-col items-center text-center">
         {blok.image ? (
-          <Image
+          <img
             src={blok.image.filename ?? ""}
             alt={blok.image.alt ?? blok.name ?? "Testimonial image"}
             width={100}

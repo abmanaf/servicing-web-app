@@ -1,6 +1,6 @@
 import type { TestimonialSection as TestimonialSectionType } from "@/types";
 import TestimonialCard from "@/components/atoms/about/testimonial-card";
-import { SectionHeader } from "@/components/atoms/section-header";
+import { SectionHeader } from "@/components/atoms/shared/section-header";
 import { ContainerSection } from "@/shared/layout/container-section";
 import {
   getBackgroundColor,

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Container from "@/components/atoms/container";
+import Container from "@/components/atoms/shared/container";
 import { cn } from "@/lib/utils";
 import ScrollToServiceButton from "@/components/atoms/service/scroll-to-service-button";
 
