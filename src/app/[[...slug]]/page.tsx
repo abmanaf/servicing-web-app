@@ -4,8 +4,9 @@ import getVersion from "@/utils/getVersion";
 import { notFound } from "next/navigation";
 import { Navbar } from "@/shared/layout/nav-bar";
 import { Footer } from "@/shared/layout/footer";
-import { NavBar, FooterSection } from "@/types";
+import { NavBar, FooterSection, ChatBot } from "@/types";
 import { getSiteConfig } from "@/lib/fetch-data";
+import ChatbotWidget from "@/shared/layout/chatbot-widget";
 
 interface Props {
   params: Promise<{ slug?: string[] }>;
@@ -50,11 +51,16 @@ export default async function Page({ params }: Props) {
       (item: FooterSection) => item.component === "footerSection",
     ) as FooterSection;
 
+    const chatbotData = siteConfig?.content?.body?.find(
+      (item: ChatBot) => item.component === "chatBot",
+    ) as ChatBot;
+
     return (
       <>
         {navbarData && <Navbar blok={navbarData} />}
         <StoryblokStory story={pageData.story} />
         {footerData && <Footer blok={footerData} />}
+        {chatbotData && <ChatbotWidget blok={chatbotData} />}
       </>
     );
   } catch (error) {
