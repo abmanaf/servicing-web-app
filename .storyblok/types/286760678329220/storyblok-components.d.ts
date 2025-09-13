@@ -60,7 +60,6 @@ export interface Contact {
 export interface ContactInfo {
   title?: string;
   contact?: Contact[];
-  columns?: "" | "2" | "3" | "4";
   component: "contactInfo";
   _uid: string;
   [k: string]: unknown;
@@ -135,7 +134,6 @@ export interface ExperieceCard {
 export interface ExperienceQualification {
   title?: string;
   experice_card?: ExperieceCard[];
-  columns?: "" | "2" | "3" | "4";
   component: "experienceQualification";
   _uid: string;
   [k: string]: unknown;
@@ -824,7 +822,6 @@ export interface ServiceDetails {
 export interface ServiceOffered {
   title?: string;
   service_card?: ServiceCard[];
-  columns?: "" | "2" | "3" | "4";
   component: "serviceOffered";
   _uid: string;
   [k: string]: unknown;

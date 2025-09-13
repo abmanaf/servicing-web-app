@@ -395,7 +395,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-09-11T15:27:10.783Z",
-    "updated_at": "2025-09-12T06:06:52.993Z",
+    "updated_at": "2025-09-13T06:09:54.631Z",
     "id": 89763146897190,
     "schema": {
       "title": {
@@ -413,30 +413,6 @@
         "component_whitelist": [
           "contact"
         ]
-      },
-      "columns": {
-        "type": "option",
-        "pos": 2,
-        "use_uuid": true,
-        "options": [
-          {
-            "_uid": "c6ea3dff-cab1-4ad7-a05d-96612794d6ed",
-            "name": "Two",
-            "value": "2"
-          },
-          {
-            "_uid": "c97eff8e-068a-4119-87a7-1d38fdb6a523",
-            "value": "3",
-            "name": "Three"
-          },
-          {
-            "_uid": "38cf93dd-cf44-42df-97ac-65519fb44362",
-            "value": "4",
-            "name": "Four"
-          }
-        ],
-        "id": "U2Up4z90SCqdRUoHbOMCGA",
-        "translatable": false
       }
     },
     "image": null,
@@ -544,7 +520,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-09-11T15:34:49.574Z",
-    "updated_at": "2025-09-12T06:12:22.631Z",
+    "updated_at": "2025-09-13T06:09:28.067Z",
     "id": 89765026101043,
     "schema": {
       "title": {
@@ -562,29 +538,6 @@
         "component_whitelist": [
           "experieceCard"
         ]
-      },
-      "columns": {
-        "type": "option",
-        "pos": 2,
-        "use_uuid": true,
-        "options": [
-          {
-            "_uid": "061da0ac-3b01-4784-bd53-141ffc9214ec",
-            "name": "Two",
-            "value": "2"
-          },
-          {
-            "_uid": "425fd6c0-ec89-44aa-a2f9-215ad7fc5a85",
-            "value": "3",
-            "name": "Three"
-          },
-          {
-            "_uid": "90773172-e887-4967-9eaa-44a47d932145",
-            "value": "4",
-            "name": "Four"
-          }
-        ],
-        "id": "SBDBySHdSfONdBTgxXqpqw"
       }
     },
     "image": null,
@@ -2183,7 +2136,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-09-11T15:31:38.063Z",
-    "updated_at": "2025-09-12T06:07:09.060Z",
+    "updated_at": "2025-09-13T06:09:41.819Z",
     "id": 89764241671982,
     "schema": {
       "title": {
@@ -2201,29 +2154,6 @@
         "component_whitelist": [
           "serviceCard"
         ]
-      },
-      "columns": {
-        "type": "option",
-        "pos": 2,
-        "use_uuid": true,
-        "options": [
-          {
-            "_uid": "2f8502ce-dd57-461b-8461-028bd4c45f26",
-            "name": "Two",
-            "value": "2"
-          },
-          {
-            "_uid": "0f192170-16f1-4558-8ff6-66c65d8e858c",
-            "value": "3",
-            "name": "Three"
-          },
-          {
-            "_uid": "d7699858-d71f-4657-8703-cf9a1d14456c",
-            "value": "4",
-            "name": "Four"
-          }
-        ],
-        "id": "Esx016TGRHaf5Z7Cjye2ZQ"
       }
     },
     "image": null,
