@@ -45,15 +45,15 @@ export default async function Page({ params }: Props) {
     }
 
     const navbarData = siteConfig?.content?.body?.find(
-      (item: NavBar) => item.component === "navBar"
+      (item: NavBar) => item.component === "navBar",
     ) as NavBar;
 
     const footerData = siteConfig?.content?.body?.find(
-      (item: FooterSection) => item.component === "footerSection"
+      (item: FooterSection) => item.component === "footerSection",
     ) as FooterSection;
 
     const chatbotData = siteConfig?.content?.body?.find(
-      (item: ChatBot) => item.component === "chatBot"
+      (item: ChatBot) => item.component === "chatBot",
     ) as ChatBot;
 
     return (

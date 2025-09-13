@@ -2,11 +2,11 @@ import { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 
 interface EmptyStateProps {
-  readonly title?: string;
-  readonly message: string;
-  readonly icon?: ReactNode;
-  readonly buttonText?: string;
-  readonly retry?: () => void;
+  title?: string;
+  message: string;
+  icon?: ReactNode;
+  buttonText?: string;
+  retry?: () => void;
 }
 
 const ErrorState = ({
@@ -15,7 +15,7 @@ const ErrorState = ({
   icon,
   buttonText,
   retry,
-}: EmptyStateProps) => {
+}: Readonly<EmptyStateProps>) => {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center p-4 text-center">
       {icon && (

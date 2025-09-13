@@ -12,7 +12,7 @@ export default function ServiceCard({ blok, className }: ServiceCardProps) {
     <div
       className={cn(
         "bg-white p-3 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col items-start",
-        className
+        className,
       )}
     >
       {blok.icon?.filename && (

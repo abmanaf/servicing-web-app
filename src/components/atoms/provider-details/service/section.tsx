@@ -11,7 +11,6 @@ export default function ServiceSection({
   blok,
   className,
 }: ServiceSectionProps) {
-
   return (
     <div className={cn("w-full", className)}>
       <h3 className="text-xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-200">
