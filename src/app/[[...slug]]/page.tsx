@@ -16,7 +16,7 @@ interface Props {
 export default async function Page({ params }: Props) {
   const slugArray = (await params).slug ?? [];
 
-  const availableLanguages = ["en", "fr", "de"];
+  const availableLanguages = ["en", "de"];
   const firstSegment = slugArray[0];
   const isLanguage = firstSegment && availableLanguages.includes(firstSegment);
 
