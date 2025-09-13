@@ -9,9 +9,14 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ blok, className }: ServiceCardProps) {
   return (
-    <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
+    <div
+      className={cn(
+        "bg-white p-3 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col items-start",
+        className
+      )}
+    >
       {blok.icon?.filename && (
-        <div className="mb-3 flex justify-center">
+        <div className="mb-3 flex justify-start">
           <Image
             src={blok.icon.filename}
             alt={blok.title || "Service icon"}
@@ -22,12 +27,10 @@ export default function ServiceCard({ blok, className }: ServiceCardProps) {
         </div>
       )}
 
-      <h4 className="font-semibold text-blue-700 text-lg mb-2 text-center">
-        {blok.title}
-      </h4>
+      <h4 className="font-semibold text-blue-700 text-lg mb-2">{blok.title}</h4>
 
       {blok.specific_works && (
-        <p className="text-gray-600 text-sm leading-relaxed text-center flex-grow">
+        <p className="text-gray-600 text-sm leading-relaxed flex-grow">
           {blok.specific_works}
         </p>
       )}

@@ -1,6 +1,5 @@
 import type { ServiceOffered } from "@/types";
 import ServiceCard from "./card";
-import { getGridColumns } from "@/shared/layout/storyblok-global-style";
 import { cn } from "@/lib/utils";
 
 interface ServiceSectionProps {
@@ -12,10 +11,9 @@ export default function ServiceSection({
   blok,
   className,
 }: ServiceSectionProps) {
-  const columns = getGridColumns(blok.columns || "3");
 
   return (
-    <div className="w-full">
+    <div className={cn("w-full", className)}>
       <h3 className="text-xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-200">
         {blok.title || "Services Offered"}
       </h3>

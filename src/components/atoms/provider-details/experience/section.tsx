@@ -1,5 +1,4 @@
 import type { ExperienceQualification } from "@/types";
-import { getGridColumns } from "@/shared/layout/storyblok-global-style";
 import { cn } from "@/lib/utils";
 import Experience from "./card";
 
@@ -12,7 +11,6 @@ export default function ExperienceSection({
   blok,
   className,
 }: ExperienceSectionProps) {
-  const columns = getGridColumns(blok.columns || "2");
 
   return (
     <div className={cn("w-full", className)}>
