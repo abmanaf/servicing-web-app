@@ -400,11 +400,10 @@ export interface GetInTouchButton {
 export interface GridCard {
   label?: string;
   description?: string;
-  icon?: StoryblokAsset;
-  icon_width?: "" | "48" | "80" | "160" | "200";
-  row_span?: "" | "1" | "2";
-  border?: boolean;
-  image?: StoryblokAsset;
+  icons?: StoryblokAsset;
+  icon_widths?: "" | "48" | "80" | "160" | "200";
+  row_spans?: "" | "1" | "2";
+  borders?: boolean;
   component: "gridCard";
   _uid: string;
   [k: string]: unknown;
@@ -413,13 +412,13 @@ export interface GridCard {
 export interface HappyCustomer {
   headline?: Headline[];
   description?: StoryblokRichtext;
-  background_color?: "" | "White" | "Primary" | "Muted" | "Secondary";
-  reverser_mobile_layout?: boolean;
-  reverse_destop_layout?: boolean;
   button?: Buttons[];
   image?: StoryblokAsset;
-  image_aspect_ratio?: "" | "square" | "portrait" | "landscape" | "auto";
   fallback_description?: string;
+  background_colors?: "" | "Default" | "Muted" | "Primary" | "Secondary";
+  reverse_mobile_layout?: boolean;
+  reverse_desktop_layout?: boolean;
+  image_aspects_ratio?: "" | "auto" | "sqaure" | "portrait" | "landscape";
   component: "happyCustomer";
   _uid: string;
   [k: string]: unknown;
@@ -444,7 +443,6 @@ export interface Headline {
 export interface HeroSection {
   servicing?: string;
   headline?: Headline[];
-  sub_headline?: Headline[];
   description?: string;
   buttons?: Buttons[];
   image?: StoryblokMultiasset;
@@ -524,8 +522,8 @@ export interface OtherHeroSection {
   description?: string;
   explore_service?: Buttons[];
   image?: StoryblokAsset;
-  image_height?: "" | "Small" | "Medium" | "Large" | "Full";
-  image_opacity?: "" | "Light" | "Dark" | "Medium" | "Default";
+  image_heights?: "" | "Small" | "Medium" | "Large" | "Full";
+  background_image_opacity?: "" | "Default" | "Light" | "Medium" | "Dark";
   component: "otherHeroSection";
   _uid: string;
   [k: string]: unknown;
@@ -534,12 +532,12 @@ export interface OtherHeroSection {
 export interface OurSevices {
   headline?: Headline[];
   description?: string;
-  grid_card?: GridCard[];
-  columns?: "" | "2" | "3" | "4";
-  background_color?: "" | "White" | "Primary" | "Muted" | "Secondary";
   general_button?: Buttons[];
   no_service?: string;
   no_service_description?: string;
+  grid?: GridCard[];
+  column?: "" | "2" | "3" | "4";
+  background_colors?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   component: "ourSevices";
   _uid: string;
   [k: string]: unknown;
@@ -681,7 +679,6 @@ export interface ProviderSection {
   provider_reference?: {
     [k: string]: unknown;
   }[];
-  columns?: "" | "2" | "3" | "4";
   search_no_provider?: string;
   no_provider_search_item?: string;
   no_provider_yet?: string;
@@ -747,10 +744,12 @@ export interface ServicesPart {
   headline?: Headline[];
   description?: StoryblokRichtext;
   image?: StoryblokAsset;
-  image_aspect_ratio?: boolean;
-  desktop_layout?: boolean;
-  mobile_layout?: boolean;
-  section_background_color?: "" | "White" | "Primary" | "Muted" | "Secondary";
+  image_aspects_ratio?: boolean;
+  desktop_layouts?: boolean;
+  mobile_layouts?: boolean;
+  background_color?: {
+    [k: string]: unknown;
+  };
   component: "servicesPart";
   _uid: string;
   [k: string]: unknown;
@@ -808,7 +807,57 @@ export interface ServicesSection {
     | WorkProcessCard
   )[];
   description?: string;
-  sevice?: ServicesPart[];
+  sevices?: (
+    | AboutSummary
+    | AuthItem
+    | Buttons
+    | ChatBot
+    | Contact
+    | ContactInfo
+    | Entries
+    | ExperieceCard
+    | ExperienceQualification
+    | FaqItem
+    | FaqSection
+    | FaqTab
+    | FooterAbout
+    | FooterItem
+    | FooterSection
+    | GetInTouchButton
+    | GridCard
+    | HappyCustomer
+    | HeaderNav
+    | Headline
+    | HeroSection
+    | InnierFooterItem
+    | NavBar
+    | OtherHeroSection
+    | OurSevices
+    | OurTeam
+    | Page
+    | ProviderDetails
+    | ProviderSection
+    | ProvidersInfo
+    | ReachOutButton
+    | ServiceCard
+    | ServiceDetails
+    | ServiceOffered
+    | ServicesPart
+    | ServicesSection
+    | SharedServices
+    | SiteLogo
+    | Socails
+    | SocialLinks
+    | StatCard
+    | StatsSection
+    | TeamCard
+    | TestimonialCard
+    | TestimonialSection
+    | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
+  )[];
+  background_color?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   component: "servicesSection";
   _uid: string;
   [k: string]: unknown;
@@ -909,22 +958,71 @@ export interface WhyChooseUs {
 export interface WorkProcess {
   header?: Headline[];
   description?: string;
-  workProcessCard?: WorkProcessCard[];
-  columns?: "" | "2" | "3" | "4";
-  background_color?: "" | "Primary" | "Muted" | "Secondary" | "Default";
+  work_progress?: (
+    | AboutSummary
+    | AuthItem
+    | Buttons
+    | ChatBot
+    | Contact
+    | ContactInfo
+    | Entries
+    | ExperieceCard
+    | ExperienceQualification
+    | FaqItem
+    | FaqSection
+    | FaqTab
+    | FooterAbout
+    | FooterItem
+    | FooterSection
+    | GetInTouchButton
+    | GridCard
+    | HappyCustomer
+    | HeaderNav
+    | Headline
+    | HeroSection
+    | InnierFooterItem
+    | NavBar
+    | OtherHeroSection
+    | OurSevices
+    | OurTeam
+    | Page
+    | ProviderDetails
+    | ProviderSection
+    | ProvidersInfo
+    | ReachOutButton
+    | ServiceCard
+    | ServiceDetails
+    | ServiceOffered
+    | ServicesPart
+    | ServicesSection
+    | SharedServices
+    | SiteLogo
+    | Socails
+    | SocialLinks
+    | StatCard
+    | StatsSection
+    | TeamCard
+    | TestimonialCard
+    | TestimonialSection
+    | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
+  )[];
+  column?: "" | "2" | "3" | "4";
+  background_colors?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   component: "workProcess";
   _uid: string;
   [k: string]: unknown;
 }
 
 export interface WorkProcessCard {
-  icon?: StoryblokAsset;
   title?: string;
   description?: string;
-  icon_width?: "" | "48" | "80" | "160" | "200";
-  row_span?: "" | "1" | "2";
-  border?: boolean;
-  card_bg_color?: "" | "Primary" | "Secondary" | "Muted" | "Default";
+  icons?: StoryblokAsset;
+  icon_widths?: "" | "48" | "80" | "160" | "200";
+  row_spans?: "" | "1" | "2";
+  borders?: boolean;
+  card_bg_colors?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   component: "workProcessCard";
   _uid: string;
   [k: string]: unknown;
