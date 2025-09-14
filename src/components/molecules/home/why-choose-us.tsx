@@ -9,7 +9,6 @@ import { render } from "storyblok-rich-text-react-renderer";
 import { customRenderer } from "@/shared/layout/custome-render";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { getHeaderColor } from "@/shared/layout/storyblok-global-style";
 import { cn } from "@/lib/utils";
 
 interface WhyChooseUsProps {
@@ -26,10 +25,6 @@ export function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
       )
     : [];
 
-  const headerColor = getHeaderColor(
-    (blok.headline?.[0].highlight as string) ?? "Default Highlight",
-  );
-
   return (
     <ContainerSection
       className={className}
@@ -39,11 +34,10 @@ export function WhyChooseUs({ blok, className }: WhyChooseUsProps) {
       id="why-choose-us"
     >
       <SectionHeader
-        title={(blok?.headline?.[0]?.text as string) ?? ""}
+        title={blok?.headline ?? ""}
         description={blok?.description ?? ""}
         align="center"
         className="mb-12"
-        titleClassName={headerColor}
       />
 
       {entries.length > 1 && (

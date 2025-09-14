@@ -1,47 +1,68 @@
 "use client";
 
 import { SectionHeader } from "@/components/atoms/shared/section-header";
-import { ProviderCard } from "../../atoms/home/provider-card";
+import { ServiceReferenceCard } from "../../atoms/home/service-reference-card";
 import { SearchField } from "@/components/atoms/home/search";
 import type { ProviderSection as ProviderSectionType } from "@/types";
 import { useState, useMemo } from "react";
 import { ContainerSection } from "@/shared/layout/container-section";
 import { Search } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  getGridColumns,
-  getHeaderColor,
-} from "@/shared/layout/storyblok-global-style";
+
+import { ServiceReference } from "./index";
 
 type ProviderSectionProps = {
-  blok: ProviderSectionType;
+  blok: ProviderSectionType & {
+    provider_reference?: ServiceReference[];
+  };
   className?: string;
 };
 
 export function ProviderSection({ blok, className }: ProviderSectionProps) {
   const [searchTerm, setSearchTerm] = useState("");
-  const providersDetails = Array.isArray(blok?.provider_details)
-    ? blok.provider_details
-    : [];
-  const filteredProviders = useMemo(() => {
-    if (!searchTerm.trim()) return providersDetails;
 
-    return providersDetails.filter(
-      (provider) =>
-        provider.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        provider.service?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        provider.email?.toLowerCase().includes(searchTerm.toLowerCase()),
-    );
-  }, [providersDetails, searchTerm]);
+  const serviceReferences = Array.isArray(blok?.provider_reference)
+    ? blok.provider_reference
+    : [];
+
+  const filteredServiceReferences = useMemo(() => {
+    if (!searchTerm.trim()) return serviceReferences;
+
+    return serviceReferences.filter((service) => {
+      const providerInfo = (service.content as any).body[0];
+
+      const emailContact = providerInfo.contactInfo?.[0]?.contact?.find(
+        (c: any) => c.label === "Email Address",
+      );
+      const phoneContact = providerInfo.contactInfo?.[0]?.contact?.find(
+        (c: any) => c.label === "Phone Number",
+      );
+
+      const callButton = providerInfo.get_in_touch?.find(
+        (g: any) => g.label === "Call Now",
+      );
+      const messageButton = providerInfo.get_in_touch?.find(
+        (g: any) => g.label === "Send Message",
+      );
+
+      const email = emailContact?.value || messageButton?.value || "";
+      const phone = phoneContact?.value || callButton?.value || "";
+      const name = providerInfo.name || "";
+      const profession = providerInfo.profession || "";
+
+      return (
+        name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        profession.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        phone.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
+  }, [serviceReferences, searchTerm]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
-  const columns = getGridColumns(blok.columns ?? "Three");
-  const headerColor = getHeaderColor(
-    (blok.headline?.[0].highlight as string) ?? "Default Highlight",
-  );
   return (
     <ContainerSection
       className={cn(className, "mx-auto")}
@@ -50,34 +71,37 @@ export function ProviderSection({ blok, className }: ProviderSectionProps) {
       maxWidth="full"
     >
       <SectionHeader
-        title={blok?.headline?.[0]?.text as string}
+        title={blok?.headline || ""}
         description={blok?.description || ""}
         align="center"
         className="mb-12"
-        titleClassName={headerColor}
       />
-      {providersDetails.length > 0 && (
+
+      {serviceReferences.length > 0 && (
         <div className="w-full max-w-2xl mx-auto mb-12">
           <SearchField
-            placeholder={blok?.search_placeholder ?? "Search..."}
+            placeholder={
+              blok?.search_placeholder ?? "Search service providers..."
+            }
             value={searchTerm}
             onChange={handleSearchChange}
             className="w-full"
           />
         </div>
       )}
-      {filteredProviders.length > 0 ? (
+
+      {filteredServiceReferences.length > 0 ? (
         <div
           className={cn(
-            "grid grid-cols-1 md:grid-cols-2 container mx-auto px-4",
-            columns,
-            "gap-8",
+            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 container mx-auto px-4",
+            "gap-6",
           )}
         >
-          {filteredProviders.map((provider) => (
-            <div key={provider._uid} className="w-full">
-              <ProviderCard blok={provider} />
-            </div>
+          {filteredServiceReferences.map((service) => (
+            <ServiceReferenceCard
+              key={service._uid as unknown as string}
+              service={service as unknown as ServiceReference}
+            />
           ))}
         </div>
       ) : (

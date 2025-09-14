@@ -1,7 +1,5 @@
 "use client";
 
-import { storyblokEditable } from "@storyblok/react";
-import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import type { StatCard as StatCardType } from "@/types";
 
