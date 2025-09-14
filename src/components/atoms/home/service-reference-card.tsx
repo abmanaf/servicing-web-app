@@ -16,10 +16,8 @@ interface ServiceReferenceCardProps {
 }
 
 export function ServiceReferenceCard({ service }: ServiceReferenceCardProps) {
-  // For reference fields, the content is directly on service.content
   const providerInfo = service.content;
 
-  // If no provider info is available, show a fallback UI
   if (!providerInfo) {
     return (
       <Card className="w-full overflow-hidden">
