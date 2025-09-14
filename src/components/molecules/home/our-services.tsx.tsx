@@ -22,14 +22,14 @@ interface OurServicesProps {
 }
 
 export function OurServices({ blok, className }: OurServicesProps) {
-  const gridCards: GridCardType[] = Array.isArray(blok?.grid_card)
-    ? blok.grid_card.filter(
+  const gridCards: GridCardType[] = Array.isArray(blok?.grid)
+    ? blok.grid.filter(
         (card): card is GridCardType => card.component === "gridCard",
       )
     : [];
 
-  const backgroundColor = getBackgroundColor(blok.background_color ?? "Muted");
-  const columns = getGridColumns(blok.columns ?? "Three");
+  const backgroundColor = getBackgroundColor(blok.background_colors ?? "Muted");
+  const columns = getGridColumns(blok.column ?? "Three");
   const headerColor = getHeaderColor(
     (blok.headline?.[0].highlight as string) ?? "Default Highlight",
   );
