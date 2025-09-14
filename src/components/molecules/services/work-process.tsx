@@ -10,7 +10,6 @@ import {
   getGridColumns,
   getHeaderColor,
 } from "@/shared/layout/storyblok-global-style";
-
 import { cn } from "@/lib/utils";
 import EmptyService from "@/components/atoms/home/empty-service";
 
@@ -20,20 +19,19 @@ interface WorkProcessProps {
 }
 
 export function WorkProcess({ blok, className }: WorkProcessProps) {
-  const processCards: WorkProcessCardType[] = Array.isArray(
-    blok?.workProcessCard,
-  )
-    ? blok.workProcessCard.filter(
+  const processCards: WorkProcessCardType[] = Array.isArray(blok?.work_progress)
+    ? blok.work_progress.filter(
         (card): card is WorkProcessCardType =>
           card.component === "workProcessCard",
       )
     : [];
 
-  const columns = getGridColumns(blok.columns ?? "4");
-  const backgroundColor = getBackgroundColor(blok.background_color ?? "Muted");
+  const columns = getGridColumns(blok.column ?? "4");
+  const backgroundColor = getBackgroundColor(blok.background_colors ?? "Muted");
   const headerColor = getHeaderColor(
-    blok.header?.[0].highlight ?? "Default Highlight",
+    blok.header?.[0]?.highlight ?? "Default Highlight",
   );
+
   return (
     <ContainerSection
       className={className}
@@ -44,7 +42,7 @@ export function WorkProcess({ blok, className }: WorkProcessProps) {
     >
       <div className="text-center mb-16 max-w-3xl mx-auto">
         <SectionHeader
-          title={blok?.header?.[0].text ?? ""}
+          title={blok?.header?.[0]?.text ?? ""}
           description={blok?.description ?? ""}
           align="center"
           titleClassName={headerColor}

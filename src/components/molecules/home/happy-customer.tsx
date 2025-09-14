@@ -21,18 +21,18 @@ interface HappyCustomerProps {
 }
 
 export function HappyCustomer({ blok, className }: HappyCustomerProps) {
-  const desktopLayoutClass = blok.reverse_destop_layout
+  const desktopLayoutClass = blok.reverse_desktop_layout
     ? "lg:flex-row-reverse"
     : "lg:flex-row";
 
-  const mobileLayoutClass = blok.reverser_mobile_layout
+  const mobileLayoutClass = blok.reverse_mobile_layout
     ? "flex-col-reverse"
     : "flex-col";
 
-  const imageClass = getAspectRatioClass(blok.image_aspect_ratio ?? "auto");
+  const imageClass = getAspectRatioClass(blok.image_aspects_ratio ?? "auto");
 
   const backgroundColor = getBackgroundColor(
-    blok.background_color ?? "Secondary",
+    blok.background_colors ?? "Secondary",
   );
 
   const headerColor = getHeaderColor(
@@ -104,16 +104,16 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
                 imageClass,
               )}
             >
-              <Image
+              <img
                 src={blok.image.filename}
                 alt={
                   blok.image.alt ||
                   blok.headline?.[0]?.text ||
                   "About summary image"
                 }
-                fill
-                priority
-                className="object-cover"
+                width={imageClass}
+                height={imageClass}
+                className="object-cover w-full h-full"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
               <ImageDecorator />

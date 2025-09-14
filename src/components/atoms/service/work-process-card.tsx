@@ -1,27 +1,28 @@
 import type { WorkProcessCard as WorkProcessCardType } from "@/types";
-import { getBackgroundColor } from "@/shared/layout/storyblok-global-style";
 import { cn } from "@/lib/utils";
+import { cardBackgroundColor } from "@/shared/layout/storyblok-global-style";
 
 interface WorkProcessCardProps {
   blok: WorkProcessCardType;
 }
 
 export function WorkProcessCard({ blok }: WorkProcessCardProps) {
-  const hasBorder = blok.border ? "border border-gray-200" : "";
-  const rowSpan = blok.row_span === "2" ? "lg:row-span-2" : "";
-  const backgroundColor = getBackgroundColor(blok.card_bg_color ?? "Muted");
-  const iconWidth = blok.icon_width ?? "48px";
+  const hasBorder = blok.borders ? "border border-gray-200" : "";
+  const rowSpan = blok.row_spans === "2" ? "lg:row-span-2" : "";
+  const backgroundColor = cardBackgroundColor(blok.card_bg_colors ?? "white");
+  const iconWidth = blok.icon_widths ?? "48px";
+
   return (
     <div
       className={cn(
-        "rounded-2xl bg-white p-6 lg:p-8 shadow hover:shadow transition-all duration-300 group",
+        "rounded-2xl p-6 lg:p-8 shadow hover:shadow transition-all duration-300 group",
         backgroundColor,
         hasBorder,
         rowSpan,
         "flex flex-col items-start text-start",
       )}
     >
-      {blok.icon?.filename && (
+      {blok.icons?.filename && (
         <div
           className="relative mb-6 transition-transform duration-300 group-hover:scale-110"
           style={{
@@ -30,8 +31,8 @@ export function WorkProcessCard({ blok }: WorkProcessCardProps) {
           }}
         >
           <img
-            src={blok.icon.filename}
-            alt={blok.icon.alt || blok.title}
+            src={blok.icons.filename}
+            alt={blok.icons.alt || blok.title || "Process icon"}
             className="object-contain"
             width={iconWidth}
             height={iconWidth}

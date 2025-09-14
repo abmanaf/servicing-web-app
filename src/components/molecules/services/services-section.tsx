@@ -6,7 +6,10 @@ import type {
 } from "@/types";
 import ServiceFallback from "./service-fallback";
 import { SectionHeader } from "@/components/atoms/shared/section-header";
-import { getHeaderColor } from "@/shared/layout/storyblok-global-style";
+import {
+  getHeaderColor,
+  getBackgroundColor,
+} from "@/shared/layout/storyblok-global-style";
 
 interface ServicesSectionProps {
   blok: ServicesSectionType;
@@ -24,10 +27,14 @@ export function ServicesSection({ blok, className }: ServicesSectionProps) {
   const headerColor = getHeaderColor(
     (blok.headline?.[0].highlight as string) ?? "Default Highlight",
   );
+
+  const backgroundColor = getBackgroundColor(
+    blok.background_color ?? "Default",
+  );
   return (
     <ContainerSection
       className={className}
-      background="default"
+      background={backgroundColor}
       padding="xl"
       maxWidth="full"
       id="services-section"

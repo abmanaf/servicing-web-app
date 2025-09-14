@@ -115,3 +115,16 @@ export const getBackgroundColorClass = (backgroundColor: string) => {
       return "default";
   }
 };
+
+export const cardBackgroundColor = (color: string) => {
+  switch (color) {
+    case "Primary":
+      return "bg-primary text-primary-foreground";
+    case "Muted":
+      return "bg-muted text-muted-foreground";
+    case "Secondary":
+      return "bg-secondary text-secondary-foreground";
+    default:
+      return "bg-white text-foreground";
+  }
+};
