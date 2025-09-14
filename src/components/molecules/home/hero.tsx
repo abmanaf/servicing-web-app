@@ -24,7 +24,7 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setSelectedIndex((prevIndex) =>
-        prevIndex === (images?.length || 0) - 1 ? 0 : prevIndex + 1
+        prevIndex === (images?.length || 0) - 1 ? 0 : prevIndex + 1,
       );
     }, 8000);
 
@@ -37,13 +37,13 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
 
   const scrollPrev = useCallback(() => {
     setSelectedIndex((prevIndex) =>
-      prevIndex === 0 ? (images?.length || 0) - 1 : prevIndex - 1
+      prevIndex === 0 ? (images?.length || 0) - 1 : prevIndex - 1,
     );
   }, [images?.length]);
 
   const scrollNext = useCallback(() => {
     setSelectedIndex((prevIndex) =>
-      prevIndex === (images?.length || 0) - 1 ? 0 : prevIndex + 1
+      prevIndex === (images?.length || 0) - 1 ? 0 : prevIndex + 1,
     );
   }, [images?.length]);
 
@@ -63,7 +63,7 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
                 key={index}
                 className={cn(
                   "text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold",
-                  getHeaderColor(headline?.highlight || "")
+                  getHeaderColor(headline?.highlight || ""),
                 )}
               >
                 {headline?.text}
@@ -84,7 +84,7 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
                 size="lg"
                 className={cn(
                   "w-full sm:w-auto",
-                  index > 0 ? "text-primary-foreground bg-primary" : ""
+                  index > 0 ? "text-primary-foreground bg-primary" : "",
                 )}
               >
                 <Link
@@ -153,7 +153,7 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
                       {
                         "opacity-100": index === selectedIndex,
                         "opacity-50 hover:opacity-100": index !== selectedIndex,
-                      }
+                      },
                     )}
                   >
                     <Image

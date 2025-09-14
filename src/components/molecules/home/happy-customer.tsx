@@ -32,14 +32,14 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
   const imageClass = getAspectRatioClass(blok.image_aspect_ratio ?? "auto");
 
   const backgroundColor = getBackgroundColor(
-    blok.background_color ?? "Secondary"
+    blok.background_color ?? "Secondary",
   );
 
   const headerColor = getHeaderColor(
-    blok.headline?.[0].highlight ?? "Default Highlight"
+    blok.headline?.[0].highlight ?? "Default Highlight",
   );
   const nextHeaderTitle = getHeaderColor(
-    blok.headline?.[1].highlight ?? "Default Highlight"
+    blok.headline?.[1].highlight ?? "Default Highlight",
   );
 
   return (
@@ -55,7 +55,7 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
           "flex",
           mobileLayoutClass,
           desktopLayoutClass,
-          "gap-12 container mx-auto px-4 lg:gap-16 items-center"
+          "gap-12 container mx-auto px-4 lg:gap-16 items-center",
         )}
       >
         <div className="flex-1 space-y-8">
@@ -66,7 +66,7 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
                   key={headline._uid}
                   className={cn(
                     "text-xl md:text-3xl lg:text-4xl font-bold leading-tight",
-                    index === 0 ? headerColor : nextHeaderTitle
+                    index === 0 ? headerColor : nextHeaderTitle,
                   )}
                 >
                   {headline.text}
@@ -101,7 +101,7 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
               className={cn(
                 "relative overflow-hidden rounded-2xl shadow-xl w-full",
                 "max-w-full mx-auto",
-                imageClass
+                imageClass,
               )}
             >
               <Image
