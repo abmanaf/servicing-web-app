@@ -7,12 +7,15 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import type { HeroSection as HeroSectionProps } from "@/types";
 import { Button } from "@/components/ui/button";
+import { getHeaderColor } from "@/shared/layout/storyblok-global-style";
 import Container from "@/components/atoms/shared/container";
 
 export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const images = blok?.image;
+
+  const headlines = blok?.headline;
 
   const buttons = blok?.buttons;
 
@@ -21,7 +24,7 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setSelectedIndex((prevIndex) =>
-        prevIndex === (images?.length || 0) - 1 ? 0 : prevIndex + 1,
+        prevIndex === (images?.length || 0) - 1 ? 0 : prevIndex + 1
       );
     }, 8000);
 
@@ -34,13 +37,13 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
 
   const scrollPrev = useCallback(() => {
     setSelectedIndex((prevIndex) =>
-      prevIndex === 0 ? (images?.length || 0) - 1 : prevIndex - 1,
+      prevIndex === 0 ? (images?.length || 0) - 1 : prevIndex - 1
     );
   }, [images?.length]);
 
   const scrollNext = useCallback(() => {
     setSelectedIndex((prevIndex) =>
-      prevIndex === (images?.length || 0) - 1 ? 0 : prevIndex + 1,
+      prevIndex === (images?.length || 0) - 1 ? 0 : prevIndex + 1
     );
   }, [images?.length]);
 
@@ -55,12 +58,17 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
       <div className="flex flex-col xl:flex-row items-start justify-between w-full gap-8 lg:gap-14">
         <div className="flex flex-col w-full xl:w-2/5 space-y-8">
           <div className="">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold">
-              {blok.headline}
-            </h1>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold">
-              {blok.sub_headline}
-            </h3>
+            {headlines?.map((headline, index) => (
+              <h1
+                key={index}
+                className={cn(
+                  "text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold",
+                  getHeaderColor(headline?.highlight || "")
+                )}
+              >
+                {headline?.text}
+              </h1>
+            ))}
           </div>
 
           <p className="text-base text-gray-600 font-normal max-w-xl">
@@ -76,7 +84,7 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
                 size="lg"
                 className={cn(
                   "w-full sm:w-auto",
-                  index > 0 ? "text-primary-foreground bg-primary" : "",
+                  index > 0 ? "text-primary-foreground bg-primary" : ""
                 )}
               >
                 <Link
@@ -145,7 +153,7 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
                       {
                         "opacity-100": index === selectedIndex,
                         "opacity-50 hover:opacity-100": index !== selectedIndex,
-                      },
+                      }
                     )}
                   >
                     <Image

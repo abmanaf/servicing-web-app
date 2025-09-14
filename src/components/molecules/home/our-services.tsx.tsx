@@ -6,6 +6,11 @@ import type {
   OurSevices as OurServicesType,
   GridCard as GridCardType,
 } from "@/types";
+import {
+  getBackgroundColor,
+  getGridColumns,
+  getHeaderColor,
+} from "@/shared/layout/storyblok-global-style";
 
 import { cn } from "@/lib/utils";
 import EmptyService from "@/components/atoms/home/empty-service";
@@ -23,25 +28,32 @@ export function OurServices({ blok, className }: OurServicesProps) {
       )
     : [];
 
+  const backgroundColor = getBackgroundColor(blok.background_color ?? "Muted");
+  const columns = getGridColumns(blok.columns ?? "Three");
+  const headerColor = getHeaderColor(
+    (blok.headline?.[0].highlight as string) ?? "Default Highlight",
+  );
   return (
     <ContainerSection
       className={className}
-      background="muted"
+      background={backgroundColor}
       padding="xl"
       maxWidth="full"
       id="our-services"
     >
       <SectionHeader
-        title={blok.headline || ""}
+        title={blok.headline?.[0].text as string}
         description={blok.description ?? ""}
         className="mb-16"
         align="center"
+        titleClassName={headerColor}
       />
 
       {gridCards.length > 0 && (
         <div
           className={cn(
             "grid grid-cols-1 md:grid-cols-2 container mx-auto px-4",
+            columns,
             "gap-8",
           )}
         >

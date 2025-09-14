@@ -2,12 +2,18 @@ import { render } from "storyblok-rich-text-react-renderer";
 import { ContainerSection } from "@/shared/layout/container-section";
 import type { HappyCustomer as HappyCustomerType } from "@/types";
 import { ArrowRight } from "lucide-react";
+import {
+  getBackgroundColor,
+  getHeaderColor,
+  getAspectRatioClass,
+} from "@/shared/layout/storyblok-global-style";
 import { customRenderer } from "@/shared/layout/custome-render";
 import { cn } from "@/lib/utils";
 import HappyCustomerImageFallback from "@/components/atoms/home/happy-customer-image-fallback";
 import ImageDecorator from "@/shared/layout/image-decorator";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 interface HappyCustomerProps {
   blok: HappyCustomerType;
@@ -23,9 +29,23 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
     ? "flex-col-reverse"
     : "flex-col";
 
+  const imageClass = getAspectRatioClass(blok.image_aspect_ratio ?? "auto");
+
+  const backgroundColor = getBackgroundColor(
+    blok.background_color ?? "Secondary"
+  );
+
+  const headerColor = getHeaderColor(
+    blok.headline?.[0].highlight ?? "Default Highlight"
+  );
+  const nextHeaderTitle = getHeaderColor(
+    blok.headline?.[1].highlight ?? "Default Highlight"
+  );
+
   return (
     <ContainerSection
       className={cn(className, "")}
+      background={backgroundColor}
       padding="xl"
       maxWidth="full"
       id="happy-customer"
@@ -35,15 +55,23 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
           "flex",
           mobileLayoutClass,
           desktopLayoutClass,
-          "gap-12 container mx-auto px-4 lg:gap-16 items-center",
+          "gap-12 container mx-auto px-4 lg:gap-16 items-center"
         )}
       >
         <div className="flex-1 space-y-8">
-          {blok.headline && (
+          {blok.headline && blok.headline.length > 0 && (
             <div>
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold leading-tight">
-                {blok.headline}
-              </h2>
+              {blok.headline.map((headline, index) => (
+                <h2
+                  key={headline._uid}
+                  className={cn(
+                    "text-xl md:text-3xl lg:text-4xl font-bold leading-tight",
+                    index === 0 ? headerColor : nextHeaderTitle
+                  )}
+                >
+                  {headline.text}
+                </h2>
+              ))}
             </div>
           )}
 
@@ -69,10 +97,22 @@ export function HappyCustomer({ blok, className }: HappyCustomerProps) {
 
         {blok.image?.filename ? (
           <div className="flex-1 w-full">
-            <div className="relative overflow-hidden rounded-2xl shadow-xl w-full max-w-full mx-auto">
-              <img
+            <div
+              className={cn(
+                "relative overflow-hidden rounded-2xl shadow-xl w-full",
+                "max-w-full mx-auto",
+                imageClass
+              )}
+            >
+              <Image
                 src={blok.image.filename}
-                alt={blok.image.alt ?? blok.headline ?? "About summary image"}
+                alt={
+                  blok.image.alt ||
+                  blok.headline?.[0]?.text ||
+                  "About summary image"
+                }
+                fill
+                priority
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
