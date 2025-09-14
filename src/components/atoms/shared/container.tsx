@@ -1,8 +1,6 @@
-import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-
 interface SectionProps {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
   containerClassName?: string;
   background?: "white" | "default" | "gradient" | "custom";
@@ -24,7 +22,7 @@ const Container = ({
 }: SectionProps) => {
   const backgroundClasses = {
     white: "bg-white",
-    gradient: "bg-gradient-to-br from-blue-900 to-purple-800",
+    gradient: "",
     custom: "bg-gradient-to-br from-primary to-primary-foreground",
     default: "bg-gray-50",
   };
