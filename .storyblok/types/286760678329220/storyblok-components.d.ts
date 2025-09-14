@@ -411,10 +411,14 @@ export interface GridCard {
 }
 
 export interface HappyCustomer {
-  headline?: string;
+  headline?: Headline[];
   description?: StoryblokRichtext;
+  background_color?: "" | "White" | "Primary" | "Muted" | "Secondary";
+  reverser_mobile_layout?: boolean;
+  reverse_destop_layout?: boolean;
   button?: Buttons[];
   image?: StoryblokAsset;
+  image_aspect_ratio?: "" | "square" | "portrait" | "landscape" | "auto";
   fallback_description?: string;
   component: "happyCustomer";
   _uid: string;
@@ -439,8 +443,8 @@ export interface Headline {
 
 export interface HeroSection {
   servicing?: string;
-  headline?: string;
-  sub_headline?: string;
+  headline?: Headline[];
+  sub_headline?: Headline[];
   description?: string;
   buttons?: Buttons[];
   image?: StoryblokMultiasset;
@@ -528,9 +532,11 @@ export interface OtherHeroSection {
 }
 
 export interface OurSevices {
-  headline?: string;
+  headline?: Headline[];
   description?: string;
   grid_card?: GridCard[];
+  columns?: "" | "2" | "3" | "4";
+  background_color?: "" | "White" | "Primary" | "Muted" | "Secondary";
   general_button?: Buttons[];
   no_service?: string;
   no_service_description?: string;
@@ -675,6 +681,7 @@ export interface ProviderSection {
   provider_reference?: {
     [k: string]: unknown;
   }[];
+  columns?: "" | "2" | "3" | "4";
   search_no_provider?: string;
   no_provider_search_item?: string;
   no_provider_yet?: string;
@@ -891,7 +898,7 @@ export interface TestimonialSection {
 }
 
 export interface WhyChooseUs {
-  headline?: string;
+  headline?: Headline[];
   description?: string;
   entries?: Entries[];
   component: "whyChooseUs";
