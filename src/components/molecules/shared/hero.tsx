@@ -13,13 +13,15 @@ interface SharedHeroSectionProps {
 }
 
 export function SharedHeroSection({ blok, className }: SharedHeroSectionProps) {
-  const heightClass = getHeightClass(blok?.image_height ?? "Default");
+  const heightClass = getHeightClass(blok?.image_heights ?? "Default");
 
   const headerColor = getHeaderColor(
     blok?.headline?.[0].highlight ?? "Default Highlight",
   );
 
-  const overlayOpacity = getOverlayOpacity(blok?.image_opacity ?? "Default");
+  const overlayOpacity = getOverlayOpacity(
+    blok?.background_image_opacity ?? "Default",
+  );
 
   return (
     <HeroSection

@@ -1,10 +1,7 @@
 import { render } from "storyblok-rich-text-react-renderer";
 import type { ServicesPart as ServicesPartType } from "@/types";
 import { customRenderer } from "@/shared/layout/custome-render";
-import {
-  getBackgroundColor,
-  getHeaderColor,
-} from "@/shared/layout/storyblok-global-style";
+import { getHeaderColor } from "@/shared/layout/storyblok-global-style";
 import { cn } from "@/lib/utils";
 import ServicePartImageFallback from "./service-part-image-fallback";
 import Image from "next/image";
@@ -14,17 +11,13 @@ interface ServicesPartProps {
 }
 
 export function ServicesPart({ blok }: ServicesPartProps) {
-  const desktopLayoutClass = blok.desktop_layout
+  const desktopLayoutClass = blok.desktop_layouts
     ? "lg:flex-row-reverse"
     : "lg:flex-row";
 
-  const mobileLayoutClass = blok.mobile_layout
+  const mobileLayoutClass = blok.mobile_layouts
     ? "flex-col-reverse"
     : "flex-col";
-
-  const backgroundColor = getBackgroundColor(
-    blok.section_background_color ?? "Secondary",
-  );
 
   const headerColor = getHeaderColor(
     blok.headline?.map(
@@ -32,7 +25,7 @@ export function ServicesPart({ blok }: ServicesPartProps) {
     )[0] ?? "Default Highlight",
   );
 
-  const imageAspectRatio = blok.image_aspect_ratio
+  const imageAspectRatio = blok.image_aspects_ratio
     ? "aspect-[4/3]"
     : "aspect-auto";
 
@@ -40,7 +33,6 @@ export function ServicesPart({ blok }: ServicesPartProps) {
     <div
       className={cn(
         `container mx-auto flex gap-8 lg:gap-12 items-center py-16 lg:py-20`,
-        backgroundColor,
         desktopLayoutClass,
         mobileLayoutClass,
       )}
