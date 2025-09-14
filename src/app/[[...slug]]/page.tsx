@@ -34,7 +34,9 @@ export default async function Page({ params }: Props) {
           language,
           cv: Date.now(),
           resolve_links: "url",
+          resolve_relations: "providerSection.provider_reference",
         });
+        console.log(data);
         return data;
       })(),
       getSiteConfig(language),
