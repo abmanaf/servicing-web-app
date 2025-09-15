@@ -16,14 +16,14 @@ interface StatsSectionProps {
 }
 
 export function StatsSection({ blok, className }: StatsSectionProps) {
-  const statCards: StatCardType[] = Array.isArray(blok?.stat_card)
-    ? blok.stat_card.filter(
+  const statCards: StatCardType[] = Array.isArray(blok?.stats_card)
+    ? blok.stats_card.filter(
         (card): card is StatCardType => card.component === "statCard",
       )
     : [];
 
   const backgroundColor = getBackgroundColor(
-    blok.background_color ?? "Default",
+    blok.background_colors ?? "Default",
   );
 
   const headerColor = getHeaderColor(blok.headline?.[0].highlight ?? "Default");

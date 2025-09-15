@@ -3,8 +3,8 @@ import type { ServicesPart as ServicesPartType } from "@/types";
 import { customRenderer } from "@/shared/layout/custome-render";
 import { getHeaderColor } from "@/shared/layout/storyblok-global-style";
 import { cn } from "@/lib/utils";
-import ServicePartImageFallback from "./service-part-image-fallback";
 import Image from "next/image";
+import FallbackImage from "@/shared/layout/fallback-images";
 
 interface ServicesPartProps {
   blok: ServicesPartType;
@@ -87,8 +87,10 @@ export function ServicesPart({ blok }: ServicesPartProps) {
             )}
           >
             <div className="text-center text-gray-400">
-              <ServicePartImageFallback />
-              <p className="text-sm font-medium">Service Image</p>
+              <FallbackImage
+                svgPath="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+                description="Service Part Image"
+              />
             </div>
           </div>
         )}

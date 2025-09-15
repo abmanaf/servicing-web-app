@@ -1,5 +1,4 @@
 import { render } from "storyblok-rich-text-react-renderer";
-import Image from "next/image";
 import { ContainerSection } from "@/shared/layout/container-section";
 import type { AboutSummary as AboutSummaryType } from "@/types";
 import { customRenderer } from "@/shared/layout/custome-render";
@@ -9,6 +8,7 @@ import {
   getAspectRatioClass,
 } from "@/shared/layout/storyblok-global-style";
 import { cn } from "@/lib/utils";
+import FallbackImage from "@/shared/layout/fallback-images";
 
 interface AboutSummaryProps {
   blok: AboutSummaryType;
@@ -31,7 +31,7 @@ export function AboutSummary({ blok, className }: AboutSummaryProps) {
     (blok.headline?.[0]?.highlight as string) ?? "Default Highlight",
   );
   const aspectRatioClass = getAspectRatioClass(
-    blok.image_aspect_ratio ?? "auto",
+    blok.image_aspects_ratio ?? "auto",
   );
 
   return (
@@ -73,7 +73,7 @@ export function AboutSummary({ blok, className }: AboutSummaryProps) {
           )}
         </div>
 
-        {blok.image?.filename && (
+        {blok.image?.filename ? (
           <div className="flex-1 w-full">
             <div
               className={cn(
@@ -82,24 +82,20 @@ export function AboutSummary({ blok, className }: AboutSummaryProps) {
                 "max-w-full mx-auto",
               )}
             >
-              <Image
+              <img
                 src={blok.image.filename}
                 alt={
                   blok.image.alt ??
                   blok.headline?.[0]?.text ??
                   "About summary image"
                 }
-                fill
-                priority
-                className="object-cover"
+                className="object-cover w-full h-full"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
             </div>
           </div>
-        )}
-
-        {!blok.image?.filename && (
+        ) : (
           <div className="flex-1 w-full">
             <div
               className={cn(
@@ -109,22 +105,10 @@ export function AboutSummary({ blok, className }: AboutSummaryProps) {
               )}
             >
               <div className="text-center text-gray-400 p-8">
-                <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-md">
-                  <svg
-                    className="w-10 h-10"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <p className="text-sm font-medium">About Image</p>
+                <FallbackImage
+                  description="About Image"
+                  svgPath="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </div>
             </div>
           </div>
