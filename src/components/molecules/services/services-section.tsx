@@ -4,7 +4,6 @@ import type {
   ServicesSection as ServicesSectionType,
   ServicesPart as ServicesPartType,
 } from "@/types";
-import ServiceFallback from "./service-fallback";
 import { SectionHeader } from "@/components/atoms/shared/section-header";
 import {
   getHeaderColor,
@@ -17,8 +16,8 @@ interface ServicesSectionProps {
 }
 
 export function ServicesSection({ blok, className }: ServicesSectionProps) {
-  const services: ServicesPartType[] = Array.isArray(blok?.sevice)
-    ? blok.sevice.filter(
+  const services: ServicesPartType[] = Array.isArray(blok?.services)
+    ? blok.services.filter(
         (service): service is ServicesPartType =>
           service.component === "servicesPart",
       )
@@ -46,15 +45,11 @@ export function ServicesSection({ blok, className }: ServicesSectionProps) {
         align="center"
         titleClassName={headerColor}
       />
-      {services.length > 0 ? (
+      {services.length > 0 && (
         <div className="divide-y container mx-auto lg:px-4">
           {services.map((service) => (
             <ServicesPart key={service._uid} blok={service} />
           ))}
-        </div>
-      ) : (
-        <div className="text-center py-20">
-          <ServiceFallback />
         </div>
       )}
     </ContainerSection>

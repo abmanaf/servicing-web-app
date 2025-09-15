@@ -55,14 +55,14 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
       className="py-32"
       containerClassName="w-full"
     >
-      <div className="flex flex-col xl:flex-row items-start justify-between w-full gap-8 lg:gap-14">
-        <div className="flex flex-col w-full xl:w-2/5 space-y-8">
+      <div className="flex flex-col xl:flex-row items-start justify-between w-full gap-1">
+        <div className="flex flex-col w-full xl:w-2/4 space-y-8">
           <div className="">
             {headlines?.map((headline, index) => (
               <h1
                 key={index}
                 className={cn(
-                  "text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold",
+                  "text-2xl md:text-3xl lg:text-4xl font-bold",
                   getHeaderColor(headline?.highlight || ""),
                 )}
               >

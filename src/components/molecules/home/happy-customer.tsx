@@ -13,7 +13,6 @@ import HappyCustomerImageFallback from "@/components/atoms/home/happy-customer-i
 import ImageDecorator from "@/shared/layout/image-decorator";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Image from "next/image";
 
 interface HappyCustomerProps {
   blok: HappyCustomerType;

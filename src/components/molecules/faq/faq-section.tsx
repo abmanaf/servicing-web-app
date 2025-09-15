@@ -17,14 +17,12 @@ interface FAQSectionProps {
 }
 
 export function FAQSection({ blok, className }: FAQSectionProps) {
-  const faqTabs: FAQTabType[] = Array.isArray(blok?.faq_section)
-    ? blok.faq_section.filter(
-        (tab): tab is FAQTabType => tab.component === "faqTab",
-      )
+  const faqTabs: FAQTabType[] = Array.isArray(blok?.faq)
+    ? blok.faq.filter((tab): tab is FAQTabType => tab.component === "faqTab")
     : [];
 
   const backgroundColor = getBackgroundColor(
-    blok.background_color ?? "Default",
+    blok.background_colors ?? "Default",
   );
   const headerColor = getHeaderColor(
     blok.headline?.[0]?.highlight ?? "Default Highlight",
