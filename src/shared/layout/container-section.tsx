@@ -23,7 +23,7 @@ export function ContainerSection({
   const backgroundClasses = {
     default: "bg-background",
     muted: "bg-gray-50",
-    primary: "bg-primary text-primary-foreground",
+    primary: "bg-primary text-white",
     secondary: "bg-secondary",
   };
 
