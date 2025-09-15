@@ -123,8 +123,8 @@ export const cardBackgroundColor = (color: string) => {
     case "Muted":
       return "bg-muted text-muted-foreground";
     case "Secondary":
-      return "bg-secondary text-secondary-foreground";
+      return "bg-secondary text-primary";
     default:
-      return "bg-white text-foreground";
+      return "bg-white text-primary";
   }
 };
