@@ -2,13 +2,13 @@
 // DO NOT MODIFY THIS FILE BY HAND.
 import type { StoryblokMultilink, StoryblokRichtext, StoryblokAsset, StoryblokMultiasset } from '../storyblok.d.ts';
 export interface AboutSummary {
-  image?: StoryblokAsset;
+  mobile_reverse_layout?: boolean;
+  desktop_reverse_layout?: boolean;
+  image_aspects_ratio?: "" | "auto" | "square" | "portrait" | "landscape";
+  background_color?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   headline?: Headline[];
   description?: StoryblokRichtext;
-  desktop_reverse_layout?: boolean;
-  mobile_reverse_layout?: boolean;
-  background_color?: "" | "Default" | "Primary" | "Muted" | "Secondary";
-  image_aspect_ratio?: "" | "square" | "portrait" | "landscape" | "auto";
+  image?: StoryblokAsset;
   component: "aboutSummary";
   _uid: string;
   [k: string]: unknown;
@@ -151,8 +151,57 @@ export interface FaqItem {
 export interface FaqSection {
   headline?: Headline[];
   description?: string;
-  faq_section?: FaqTab[];
-  background_color?: "" | "White" | "Muted" | "Primary" | "Secondary";
+  background_colors?: "" | "Default" | "Muted" | "Primary" | "Secondary";
+  faq?: (
+    | AboutSummary
+    | AuthItem
+    | Buttons
+    | ChatBot
+    | Contact
+    | ContactInfo
+    | Entries
+    | ExperieceCard
+    | ExperienceQualification
+    | FaqItem
+    | FaqSection
+    | FaqTab
+    | FooterAbout
+    | FooterItem
+    | FooterSection
+    | GetInTouchButton
+    | GridCard
+    | HappyCustomer
+    | HeaderNav
+    | Headline
+    | HeroSection
+    | InnierFooterItem
+    | NavBar
+    | OtherHeroSection
+    | OurSevices
+    | OurTeam
+    | Page
+    | ProviderDetails
+    | ProviderSection
+    | ProvidersInfo
+    | ReachOutButton
+    | ServiceCard
+    | ServiceDetails
+    | ServiceOffered
+    | ServicesPart
+    | ServicesSection
+    | SharedServices
+    | SiteLogo
+    | Socails
+    | SocialLinks
+    | StatCard
+    | StatsSection
+    | TeamCard
+    | TestimonialCard
+    | TestimonialSection
+    | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
+  )[];
   component: "faqSection";
   _uid: string;
   [k: string]: unknown;
@@ -404,6 +453,7 @@ export interface GridCard {
   icon_widths?: "" | "48" | "80" | "160" | "200";
   row_spans?: "" | "1" | "2";
   borders?: boolean;
+  background_color?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   component: "gridCard";
   _uid: string;
   [k: string]: unknown;
@@ -546,9 +596,58 @@ export interface OurSevices {
 export interface OurTeam {
   headline?: Headline[];
   description?: string;
-  team_card?: TeamCard[];
-  columns?: "" | "2" | "3" | "4";
-  background_color?: "" | "White" | "Primary" | "Secondary" | "Default";
+  team?: (
+    | AboutSummary
+    | AuthItem
+    | Buttons
+    | ChatBot
+    | Contact
+    | ContactInfo
+    | Entries
+    | ExperieceCard
+    | ExperienceQualification
+    | FaqItem
+    | FaqSection
+    | FaqTab
+    | FooterAbout
+    | FooterItem
+    | FooterSection
+    | GetInTouchButton
+    | GridCard
+    | HappyCustomer
+    | HeaderNav
+    | Headline
+    | HeroSection
+    | InnierFooterItem
+    | NavBar
+    | OtherHeroSection
+    | OurSevices
+    | OurTeam
+    | Page
+    | ProviderDetails
+    | ProviderSection
+    | ProvidersInfo
+    | ReachOutButton
+    | ServiceCard
+    | ServiceDetails
+    | ServiceOffered
+    | ServicesPart
+    | ServicesSection
+    | SharedServices
+    | SiteLogo
+    | Socails
+    | SocialLinks
+    | StatCard
+    | StatsSection
+    | TeamCard
+    | TestimonialCard
+    | TestimonialSection
+    | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
+  )[];
+  column?: "" | "2" | "3" | "4";
+  background_colors?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   component: "ourTeam";
   _uid: string;
   [k: string]: unknown;
@@ -744,12 +843,10 @@ export interface ServicesPart {
   headline?: Headline[];
   description?: StoryblokRichtext;
   image?: StoryblokAsset;
+  background_color?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   image_aspects_ratio?: boolean;
   desktop_layouts?: boolean;
   mobile_layouts?: boolean;
-  background_color?: {
-    [k: string]: unknown;
-  };
   component: "servicesPart";
   _uid: string;
   [k: string]: unknown;
@@ -807,7 +904,8 @@ export interface ServicesSection {
     | WorkProcessCard
   )[];
   description?: string;
-  sevices?: (
+  background_color?: "" | "Default" | "Muted" | "Primary" | "Secondary";
+  services?: (
     | AboutSummary
     | AuthItem
     | Buttons
@@ -857,7 +955,6 @@ export interface ServicesSection {
     | WorkProcess
     | WorkProcessCard
   )[];
-  background_color?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   component: "servicesSection";
   _uid: string;
   [k: string]: unknown;
@@ -902,6 +999,8 @@ export interface StatCard {
   value?: string;
   suffix?: string;
   label?: string;
+  card_bg_color?: "" | "Default" | "Muted" | "Primary" | "Secondary";
+  border?: boolean;
   component: "statCard";
   _uid: string;
   [k: string]: unknown;
@@ -910,8 +1009,57 @@ export interface StatCard {
 export interface StatsSection {
   headline?: Headline[];
   description?: string;
-  stat_card?: StatCard[];
-  background_color?: "" | "Default" | "Primary" | "Muted" | "Secondary";
+  stats_card?: (
+    | AboutSummary
+    | AuthItem
+    | Buttons
+    | ChatBot
+    | Contact
+    | ContactInfo
+    | Entries
+    | ExperieceCard
+    | ExperienceQualification
+    | FaqItem
+    | FaqSection
+    | FaqTab
+    | FooterAbout
+    | FooterItem
+    | FooterSection
+    | GetInTouchButton
+    | GridCard
+    | HappyCustomer
+    | HeaderNav
+    | Headline
+    | HeroSection
+    | InnierFooterItem
+    | NavBar
+    | OtherHeroSection
+    | OurSevices
+    | OurTeam
+    | Page
+    | ProviderDetails
+    | ProviderSection
+    | ProvidersInfo
+    | ReachOutButton
+    | ServiceCard
+    | ServiceDetails
+    | ServiceOffered
+    | ServicesPart
+    | ServicesSection
+    | SharedServices
+    | SiteLogo
+    | Socails
+    | SocialLinks
+    | StatCard
+    | StatsSection
+    | TeamCard
+    | TestimonialCard
+    | TestimonialSection
+    | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
+  )[];
+  background_colors?: "" | "Default" | "Muted" | "Primary" | "Secondary";
   component: "statsSection";
   _uid: string;
   [k: string]: unknown;
@@ -939,8 +1087,57 @@ export interface TestimonialCard {
 export interface TestimonialSection {
   headline?: Headline[];
   description?: string;
-  testimonial_card?: TestimonialCard[];
-  background_color?: "" | "Default" | "Muted" | "Primary" | "Secondary";
+  background_colors?: "" | "Default" | "Muted" | "Primary" | "Secondary";
+  testimonies?: (
+    | AboutSummary
+    | AuthItem
+    | Buttons
+    | ChatBot
+    | Contact
+    | ContactInfo
+    | Entries
+    | ExperieceCard
+    | ExperienceQualification
+    | FaqItem
+    | FaqSection
+    | FaqTab
+    | FooterAbout
+    | FooterItem
+    | FooterSection
+    | GetInTouchButton
+    | GridCard
+    | HappyCustomer
+    | HeaderNav
+    | Headline
+    | HeroSection
+    | InnierFooterItem
+    | NavBar
+    | OtherHeroSection
+    | OurSevices
+    | OurTeam
+    | Page
+    | ProviderDetails
+    | ProviderSection
+    | ProvidersInfo
+    | ReachOutButton
+    | ServiceCard
+    | ServiceDetails
+    | ServiceOffered
+    | ServicesPart
+    | ServicesSection
+    | SharedServices
+    | SiteLogo
+    | Socails
+    | SocialLinks
+    | StatCard
+    | StatsSection
+    | TeamCard
+    | TestimonialCard
+    | TestimonialSection
+    | WhyChooseUs
+    | WorkProcess
+    | WorkProcessCard
+  )[];
   component: "testimonialSection";
   _uid: string;
   [k: string]: unknown;
