@@ -1,5 +1,6 @@
 import type { GridCard as GridCardType } from "@/types";
 import { cn } from "@/lib/utils";
+import { cardBackgroundColor } from "@/shared/layout/storyblok-global-style";
 
 interface GridCardProps {
   blok: GridCardType;
@@ -10,11 +11,15 @@ export function GridCard({ blok, className }: GridCardProps) {
   const iconWidth = blok.icon_widths ?? "48px";
   const rowSpan = blok.row_spans === "2" ? "lg:row-span-2" : "";
   const hasBorder = blok.borders ? "border border-gray-200" : "";
+  const backgroundColor = cardBackgroundColor(
+    blok.background_color ?? "Default",
+  );
 
   return (
     <div
       className={cn(
-        "bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col group",
+        "rounded-2xl p-6 lg:p-8 shadow hover:shadow transition-all duration-300 group",
+        backgroundColor,
         hasBorder,
         rowSpan,
         className,

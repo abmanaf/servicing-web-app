@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useRef } from "react";
 import type { StatCard as StatCardType } from "@/types";
+import { cardBackgroundColor } from "@/shared/layout/storyblok-global-style";
+import { cn } from "@/lib/utils";
 
 interface StatCardProps {
   blok: StatCardType;
@@ -59,21 +61,27 @@ export function StatCard({ blok, animate = true, delay = 0 }: StatCardProps) {
     }
   }, [isVisible, animate, isNumeric, numericValue]);
 
+  const backgroundColor = cardBackgroundColor(blok.card_bg_color ?? "Default");
+  const hasBorder = blok.border ? "border border-gray-200" : "";
   return (
     <div
       ref={cardRef}
-      className="text-center p-6 lg:p-8 bg-white rounded-2xl shadow hover:shadow transition-all duration-300 transform hover:scale-105 group"
+      className={cn(
+        "text-center p-6 lg:p-8 rounded-2xl shadow hover:shadow transition-all duration-300 transform hover:scale-105 group",
+        backgroundColor,
+        hasBorder,
+      )}
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="mb-3">
-        <span className="text-4xl lg:text-5xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors">
+        <span className="text-4xl lg:text-5xl font-bold transition-colors">
           {blok?.prefix}
           {isNumeric && animate ? Math.floor(count) : blok.value}
           {blok?.suffix}
         </span>
       </div>
 
-      <h3 className="text-lg lg:text-xl font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">
+      <h3 className="text-lg lg:text-xl font-semibold transition-colors">
         {blok.label}
       </h3>
 

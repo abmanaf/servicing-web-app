@@ -1,6 +1,4 @@
 import type { TestimonialCard as TestimonialCardType } from "@/types";
-import Image from "next/image";
-
 interface TestimonialCardProps {
   blok: TestimonialCardType;
 }
