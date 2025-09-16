@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "handyPro",
-  description: "This is an servicing platform for artisans",
+  description: "This is a servicing platform for artisans",
 };
 
 export default function RootLayout({
