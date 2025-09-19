@@ -50,8 +50,9 @@ export function ServiceReferenceCard({ service }: ServiceReferenceCardProps) {
     .join("")
     .toUpperCase();
 
-  const serviceUrl =
-    service.cached_url || service.full_slug || `/services/${service.slug}`;
+  const rawUrl = service.cached_url || service.full_slug || `/services/${service.slug}`;
+
+  const serviceUrl = rawUrl.replace(/^de\//, ""); 
 
   return (
     <Card className="w-full overflow-hidden transition-shadow hover:shadow-lg">
