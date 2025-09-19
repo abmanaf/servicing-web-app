@@ -23,7 +23,7 @@ const GetInTouch = ({ blok, className }: GetInTouchProps) => {
           "w-full py-3 px-6 rounded-lg flex items-center justify-center transition-colors shadow-md hover:shadow-lg font-medium",
           isPhoneContact
             ? "bg-green-600 text-white hover:bg-green-700"
-            : "bg-primary text-primary-foreground hover:bg-primary/80"
+            : "bg-primary text-primary-foreground hover:bg-primary/80",
         )}
       >
         {blok.label}
