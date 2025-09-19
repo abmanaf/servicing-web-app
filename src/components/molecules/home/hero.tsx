@@ -52,7 +52,7 @@ export default function HeroSection({ blok }: { blok: HeroSectionProps }) {
       background="white"
       spacing="xl"
       alignment="start"
-      className="py-32"
+      className="pt-20 pb-32"
       containerClassName="w-full"
     >
       <div className="flex flex-col xl:flex-row items-start justify-between w-full gap-1">
