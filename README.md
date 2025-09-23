@@ -1,5 +1,5 @@
 <div style="text-align: center">
-  <h1>🌍 Servicing Application (Under construction)</h1>
+  <h1>🌍 Servicing Application</h1>
   <p>A modern, responsive web application for service providers and customers, built with Next.js and Storyblok headless CMS.</p>
   
   <div>
@@ -115,7 +115,10 @@
 | `pnpm lint` | Run ESLint / ESLint ausführen |
 | `pnpm format` | Format code with Prettier / Code mit Prettier formatieren |
 | `pnpm storyblok:gen` | Generate TypeScript types / TypeScript-Typen generieren |
-| `pnpm storyblok:pull` | Pull Storyblok schemas / Storyblok-Schemata abrufen |
+| `pnpm storyblok:pull` | Pull Storyblok schemas / 
+Storyblok-Schemata abrufen |
+| `pnpm storyblok:login` | Login to Storyblok / Storyblok einloggen |
+| `pnpm storyblok:logout` | Logout from Storyblok / Storyblok ausloggen |
 
 ### Project Structure
 
@@ -135,7 +138,6 @@ servicing-app/
 │   │
 │   ├── shared/              # Shared utilities and configurations
 │   │   ├── layout/          # Layout components and styles
-│   │   └── schema/          # Validation schemas
 │   │
 │   ├── lib/                 # Core application logic
 │   │   ├── api/             # API client and services
@@ -165,7 +167,6 @@ servicing-app/
 3. **`shared/`**
    - Layout components and styles
    - Global configurations and constants
-   - Form validation schemas
 
 4. **`lib/`**
    - Core business logic
@@ -199,8 +200,23 @@ servicing-app/
 Create a `.env.local` file in the root directory with the following variables:
 
 ```env
-NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN=your-access-token
-NEXT_PUBLIC_STORYBLOK_ENV=dev # or 'prod' for production
+NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN=your-preview-access-token
+STORYBLOK_IS_PREVIEW=true
+STORYBLOK_BASE_URL=cdn/stories
+```
+
+Create a `.env.preview` file in the root directory with the following variables:
+
+```env
+NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN=your-preview-access-token
+STORYBLOK_IS_PREVIEW=true
+```
+
+Create a `.env.production` file in the root directory with the following variables:
+
+```env
+NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN=your-public-access-token
+STORYBLOK_IS_PREVIEW=false
 ```
 
 ## 🤝 Contributing / Mitwirken
