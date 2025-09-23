@@ -253,7 +253,7 @@ We welcome contributions from everyone! Here's how you can help:
 ---
 
 <div className="center">
-  <p>Made with ❤️ by <a href="https://github.com/yourusername">Alibaba</a></p>
+  <p>Made by <a href="https://github.com/yourusername">Alibaba</a></p>
   <p>Available in: 
     <a href="#readme">English</a> | 
     <a href="docs/README.de.md">Deutsch</a>
