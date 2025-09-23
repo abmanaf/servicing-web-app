@@ -120,20 +120,65 @@
 ### Project Structure
 
 ```
-src/
-├── app/                    # App router pages and layouts
-│   ├── auth/              # Authentication pages
-│   └── [[...slug]]/       # Dynamic routes for Storyblok pages
-├── components/            # Reusable UI components
-│   ├── ui/                # Shadcn/ui components
-│   └── molecule/          # Complex components
-├── lib/                   # Utility functions and API clients
-├── shared/                # Shared components and layouts
-│   └── layout/            # Layout components (header, footer, etc.)
-├── styles/                # Global styles
-├── types/                 # TypeScript type definitions
-└── utils/                 # Utility functions
+servicing-app/
+├── public/                  # Static files (images, fonts, etc.)
+├── src/
+│   ├── app/                 # Next.js 13+ app directory
+│   │   └── [...slug]/       # Dynamic route handling
+│   │
+│   ├── components/          # Reusable UI components
+│   │   ├── atoms/           # Atomic design: Basic building blocks
+│   │   ├── molecules/       # Groups of atoms working together
+│   │   ├── organism/        # Complex UI components
+│   │   ├── ui/              # Shadcn/ui components
+│   │   └── fields/          # Form fields and inputs
+│   │
+│   ├── shared/              # Shared utilities and configurations
+│   │   ├── layout/          # Layout components and styles
+│   │   └── schema/          # Validation schemas
+│   │
+│   ├── lib/                 # Core application logic
+│   │   ├── api/             # API client and services
+│   │   ├── config/          # Application configuration
+│   │   └── utils/           # Shared utility functions
+│   │
+│   ├── styles/              # Global styles and themes
+│   ├── types/               # TypeScript type definitions
+│   └── utils/               # Helper utilities
+│
+├── .storyblok/             # Storyblok type definitions
+├── .github/                # GitHub workflows and templates
+├── .husky/                 # Git hooks
+├── public/                 # Public assets
+└── certificates/           # SSL/TLS certificates for local development
 ```
+
+#### Key Directories Explained
+
+1. **`app/`**
+   - Contains the Next.js 13+ app router configuration
+   - Handles routing and page layouts
+   - Implements server components for better performance
+
+2. **`components/`**
+   - Follows Atomic Design methodology
+   - Organized by component complexity
+   - Contains reusable UI elements
+
+3. **`shared/`**
+   - Layout components and styles
+   - Global configurations and constants
+   - Form validation schemas
+
+4. **`lib/`**
+   - Core business logic
+   - API integration layer
+   - Utility functions and helpers
+
+5. **`public/`**
+   - Static assets
+   - Images, icons, and fonts
+   - Publicly accessible files
 
 ## 📦 Dependencies
 
