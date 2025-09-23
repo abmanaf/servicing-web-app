@@ -146,10 +146,7 @@ servicing-app/
 │   ├── types/               # TypeScript type definitions
 │   └── utils/               # Helper utilities
 │
-├── .storyblok/             # Storyblok type definitions
-├── .github/                # GitHub workflows and templates
-├── .husky/                 # Git hooks
-├── public/                 # Public assets
+├── .storyblok/             # Storyblok type 
 └── certificates/           # SSL/TLS certificates for local development
 ```
 
