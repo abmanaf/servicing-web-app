@@ -22,6 +22,23 @@
     <a href="docs/README.de.md"><img src="https://img.shields.io/badge/DE-flag.svg?style=flat-square" alt="Deutsch" height="20"></a>
   </div>
 </div>
+<div>
+  
+<div class="marginBottom: 3px">
+  <img width="1918" height="995" alt="Screenshot (698)" src="https://github.com/user-attachments/assets/21c1a0d8-33ff-4d3f-91f8-a1ef43dfe6c8" />
+</div>
+<div class="marginBottom: 3px">
+  <img width="1918" height="997" alt="Screenshot (701)" src="https://github.com/user-attachments/assets/5eacbb12-d748-433f-bf47-c2e3fb16aaf4" />
+</div>
+<div class="marginBottom: 3px">
+<img width="1922" height="992" alt="Screenshot (702)" src="https://github.com/user-attachments/assets/c24617b6-9c18-46a2-9436-990b600edfd5" />
+</div>
+<div class="marginBottom: 3px">
+<img width="1920" height="993" alt="Screenshot (703)" src="https://github.com/user-attachments/assets/b0d4af1b-59fa-46f6-94c7-35e7fdfe45dd" />
+</div>
+<div class="marginBottom: 3px">
+<img width="1920" height="997" alt="Screenshot (704)" src="https://github.com/user-attachments/assets/65b95fcf-6132-4c8d-988b-ca8a6b4129c6" />
+</div>
 
 ## 🌟 Features / Funktionen
 
